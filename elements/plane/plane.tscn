@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bru8oq7eouxin"]
+[gd_scene load_steps=15 format=3 uid="uid://bru8oq7eouxin"]
 
 [ext_resource type="Script" uid="uid://b4vm6grsa6ksv" path="res://elements/plane/plane.gd" id="1_4klky"]
-[ext_resource type="Texture2D" uid="uid://b54ku7dkufuc3" path="res://assets/plane.png" id="1_qtbu2"]
-[ext_resource type="Texture2D" uid="uid://cj7cxfnhoafea" path="res://assets/prop.png" id="1_yfveq"]
-[ext_resource type="Texture2D" uid="uid://b8qmvn8jyy6bp" path="res://assets/prop2.png" id="2_cvxoo"]
+[ext_resource type="Texture2D" uid="uid://drjelxym1xeja" path="res://assets/FokkerDrI/fokker_dr1.png" id="2_w4qh5"]
+[ext_resource type="Texture2D" uid="uid://douxatx53gajb" path="res://assets/FokkerDrI/fokker_dr1_prop1.png" id="3_yfhog"]
+[ext_resource type="Texture2D" uid="uid://c704ya3v1xynx" path="res://assets/FokkerDrI/fokker_dr1_prop2.png" id="4_mk0xw"]
 [ext_resource type="Texture2D" uid="uid://bxd5buhy60dm1" path="res://assets/MGtracers/tratata/tratata1.png" id="5_lufny"]
 [ext_resource type="Texture2D" uid="uid://b0axv5bl64h8h" path="res://assets/MGtracers/tratata/tratata0.png" id="5_w4qh5"]
 [ext_resource type="Texture2D" uid="uid://b8wj0kbst1soy" path="res://assets/MGtracers/tratata/tratata2.png" id="6_w4qh5"]
@@ -12,22 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://ibgc4ooojv48" path="res://assets/MGtracers/tratata/tratata5.png" id="9_v5ru8"]
 [ext_resource type="Texture2D" uid="uid://b5ynvjk3m7f48" path="res://assets/MGtracers/tratata/tratata6.png" id="10_22y4q"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yfveq"]
-atlas = ExtResource("1_yfveq")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvxoo"]
-atlas = ExtResource("2_cvxoo")
-region = Rect2(0, 0, 64, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1qsc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yfveq")
+"texture": ExtResource("3_yfhog")
 }, {
-"duration": 0.8,
-"texture": SubResource("AtlasTexture_cvxoo")
+"duration": 1.0,
+"texture": ExtResource("4_mk0xw")
 }],
 "loop": true,
 "name": &"propeller",
@@ -67,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bevt8"]
-size = Vector2(58, 42)
+size = Vector2(52, 45)
 
 [node name="Plane" type="Node2D"]
 
@@ -78,23 +70,25 @@ script = ExtResource("1_4klky")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture_filter = 1
-texture = ExtResource("1_qtbu2")
+texture = ExtResource("2_w4qh5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/Sprite2D"]
 sprite_frames = SubResource("SpriteFrames_p1qsc")
 animation = &"propeller"
 autoplay = "propeller"
-frame_progress = 0.104227
+frame_progress = 0.83471
 speed_scale = 3.0
 
 [node name="tratata" type="AnimatedSprite2D" parent="CharacterBody2D/Sprite2D"]
-position = Vector2(-2, -26)
+position = Vector2(-1, -36)
 sprite_frames = SubResource("SpriteFrames_kfm81")
 animation = &"tratata"
+frame = 7
+frame_progress = 1.0
 speed_scale = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1, 6)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_bevt8")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]

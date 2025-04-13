@@ -7,13 +7,15 @@
 [node name="GameScene" type="Node2D"]
 
 [node name="wall" parent="." instance=ExtResource("2_k7opx")]
+position = Vector2(-17, -146)
 
 [node name="wall-R" parent="." instance=ExtResource("2_k7opx")]
-position = Vector2(1162, 0)
+position = Vector2(1534, -145)
 
 [node name="Plane" parent="." instance=ExtResource("1_ccn18")]
-position = Vector2(562, 523)
-scale = Vector2(2.5, 2.5)
+position = Vector2(693, 771)
+scale = Vector2(2, 2)
 
 [node name="Enemy Scene" parent="." instance=ExtResource("3_k7opx")]
 position = Vector2(35, -2)
+scale = Vector2(2, 2)

@@ -13,12 +13,15 @@ config_version=5
 config/name="Flying Circus"
 run/main_scene="uid://bouhbsvjrlhbd"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="uid://diea6bskf4b3x"
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=1500
+window/size/viewport_height=850
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="keep_height"
 
 [dotnet]
 
