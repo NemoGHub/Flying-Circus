@@ -1,0 +1,100 @@
+[gd_scene load_steps=17 format=3 uid="uid://bru8oq7eouxin"]
+
+[ext_resource type="Script" uid="uid://b4vm6grsa6ksv" path="res://elements/plane/plane.gd" id="1_4klky"]
+[ext_resource type="Texture2D" uid="uid://b54ku7dkufuc3" path="res://assets/plane.png" id="1_qtbu2"]
+[ext_resource type="Texture2D" uid="uid://cj7cxfnhoafea" path="res://assets/prop.png" id="1_yfveq"]
+[ext_resource type="Texture2D" uid="uid://b8qmvn8jyy6bp" path="res://assets/prop2.png" id="2_cvxoo"]
+[ext_resource type="Texture2D" uid="uid://bxd5buhy60dm1" path="res://assets/MGtracers/tratata/tratata1.png" id="5_lufny"]
+[ext_resource type="Texture2D" uid="uid://b0axv5bl64h8h" path="res://assets/MGtracers/tratata/tratata0.png" id="5_w4qh5"]
+[ext_resource type="Texture2D" uid="uid://b8wj0kbst1soy" path="res://assets/MGtracers/tratata/tratata2.png" id="6_w4qh5"]
+[ext_resource type="Texture2D" uid="uid://c0o0gjwhvnqqe" path="res://assets/MGtracers/tratata/tratata3.png" id="7_yfhog"]
+[ext_resource type="Texture2D" uid="uid://d1cn2ds53louw" path="res://assets/MGtracers/tratata/tratata4.png" id="8_mk0xw"]
+[ext_resource type="Texture2D" uid="uid://ibgc4ooojv48" path="res://assets/MGtracers/tratata/tratata5.png" id="9_v5ru8"]
+[ext_resource type="Texture2D" uid="uid://b5ynvjk3m7f48" path="res://assets/MGtracers/tratata/tratata6.png" id="10_22y4q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfveq"]
+atlas = ExtResource("1_yfveq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvxoo"]
+atlas = ExtResource("2_cvxoo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1qsc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfveq")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_cvxoo")
+}],
+"loop": true,
+"name": &"propeller",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfm81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_w4qh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lufny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w4qh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yfhog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mk0xw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v5ru8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_22y4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w4qh5")
+}],
+"loop": false,
+"name": &"tratata",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bevt8"]
+size = Vector2(58, 42)
+
+[node name="Plane" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+texture_filter = 1
+motion_mode = 1
+script = ExtResource("1_4klky")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+texture = ExtResource("1_qtbu2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_p1qsc")
+animation = &"propeller"
+autoplay = "propeller"
+frame_progress = 0.104227
+speed_scale = 3.0
+
+[node name="tratata" type="AnimatedSprite2D" parent="CharacterBody2D/Sprite2D"]
+position = Vector2(-2, -26)
+sprite_frames = SubResource("SpriteFrames_kfm81")
+animation = &"tratata"
+speed_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, 6)
+shape = SubResource("RectangleShape2D_bevt8")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
