@@ -2,13 +2,16 @@ extends CharacterBody2D
 
 const SPEED = 1
 const turnRate = 300.0
-var HEALTH = 1
+const HEALTH = 1
+var HEALTH_remains = HEALTH
 const ramDmage = 10
+var direction = 0
 
 const bullet_scene = preload("res://elements/Bullet/bullet_2d.tscn")
 var texture = preload("res://assets/plane.png")
 var texture_to_left = preload("res://assets/plane_to_left.png")
 var texture_to_right = preload("res://assets/plane_to_right.png")
+var smoke_scene = preload("res://elements/effects/smoke.tscn")
 
 func _physics_process(delta: float) :
 	# Get the input direction and handle the movement/deceleration.
@@ -21,6 +24,11 @@ func _physics_process(delta: float) :
 			print('RAM_EM!')
 			collider.shot(ramDmage)
 			queue_free()
+	if HEALTH_remains < 0:
+		fall()
+	#if HEALTH_remains < HEALTH:
+		#var smoke = smoke_scene.instantiate()
+		#add_child(smoke) 
 	
 func mg_fire():
 	var shell = bullet_scene.instantiate()	
@@ -28,11 +36,32 @@ func mg_fire():
 	add_child(shell)
 	
 func shot(damage):
-	HEALTH -= damage
-	if HEALTH < 0:
+	HEALTH_remains -= damage
+	if HEALTH_remains < 0:
 		print('Hit')
 		shot_down()
 		
 func shot_down():
 	print('Shot down!')
+	direction = randf_range(-1.0, 1.0)
+	$Timer.wait_time = randf_range(0.0, 10.0)
+	$Timer.start()
+	
+func fall():
+	var smoke = smoke_scene.instantiate()
+	add_child(smoke) 
+	if direction > 0.0:
+		$Sprite2D.texture = texture_to_right
+	elif direction < 0.0:
+		$Sprite2D.texture = texture_to_left
+	else:
+		$Sprite2D.texture = texture
+	if $Sprite2D.scale < Vector2(0.5, 0.5):
+		queue_free()
+	$Sprite2D.scale -= Vector2(0.005, 0.005)
+	velocity.x = direction * turnRate
+	move_and_slide()
+
+
+func _on_timer_timeout() -> void:
 	queue_free()
