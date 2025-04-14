@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgmnrupa1xuw"]
+
+[ext_resource type="Script" uid="uid://c2pi18qaslald" path="res://elements/user_plane/user_plane.gd" id="1_rbjmu"]
+
+[node name="UserPlane" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_rbjmu")
