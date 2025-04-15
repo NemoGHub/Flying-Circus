@@ -1,12 +1,12 @@
 extends Planes
 
 func  _ready() -> void:
-	HEALTH = 10
+	HEALTH = 3
 	ramDmage = 10
-	SPEED = 110
-	turnRate = 300.0
-	fireRate = 0.12
-	AMMO = 800
+	SPEED = 150 * 0.75
+	turnRate = 250.0
+	fireRate = 0.1 # 500-600 rounds per minute
+	AMMO = 47 * 3
 	
 	texture = preload("res://assets/Airco D.H.2/dh2.png")
 	texture_to_left = preload("res://assets/Airco D.H.2/dh2_to_left.png")

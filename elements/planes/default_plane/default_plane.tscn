@@ -67,7 +67,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hkga"]
-size = Vector2(50, 17.5)
+size = Vector2(52, 20)
 
 [node name="default_plane" type="CharacterBody2D"]
 script = ExtResource("1_4nnsg")
@@ -91,3 +91,8 @@ speed_scale = 5.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -6.5)
 shape = SubResource("RectangleShape2D_5hkga")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

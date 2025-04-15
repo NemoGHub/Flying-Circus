@@ -1,5 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://df1ik0wdp8l5c"]
+[gd_scene load_steps=7 format=3 uid="uid://df1ik0wdp8l5c"]
 
 [ext_resource type="PackedScene" uid="uid://6lnovjcmou1i" path="res://elements/planes/default_plane/default_plane.tscn" id="1_4kptq"]
+[ext_resource type="Script" uid="uid://dmeu3eokmj0px" path="res://elements/planes/Fokker Dr I/fokker_drI.gd" id="2_qdsi6"]
+[ext_resource type="Texture2D" uid="uid://drjelxym1xeja" path="res://assets/FokkerDrI/fokker_dr1.png" id="3_1poly"]
+[ext_resource type="Texture2D" uid="uid://douxatx53gajb" path="res://assets/FokkerDrI/fokker_dr1_prop1.png" id="4_8y78s"]
+[ext_resource type="Texture2D" uid="uid://c704ya3v1xynx" path="res://assets/FokkerDrI/fokker_dr1_prop2.png" id="5_dw586"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8y78s"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("4_8y78s")
+}, {
+"duration": 0.3,
+"texture": ExtResource("5_dw586")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="FokkerDrI" instance=ExtResource("1_4kptq")]
+script = ExtResource("2_qdsi6")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_1poly")
+
+[node name="AnimatedSprite2D" parent="Sprite2D" index="0"]
+visible = false
+
+[node name="tratata" parent="Sprite2D" index="1"]
+position = Vector2(0, -38)
+frame = 7
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Sprite2D" index="2"]
+sprite_frames = SubResource("SpriteFrames_8y78s")
+autoplay = "default"
+frame_progress = 0.00599439
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -13)

@@ -88,4 +88,11 @@ shape = SubResource("RectangleShape2D_bh4vp")
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.8
+drag_right_margin = 0.8
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
