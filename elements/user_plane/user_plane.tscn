@@ -5,3 +5,5 @@
 [node name="UserPlane" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_rbjmu")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

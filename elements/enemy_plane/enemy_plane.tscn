@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5qpwg4bpdowc"]
 
 [ext_resource type="Script" uid="uid://ckh3bqhjsar1k" path="res://elements/enemy_plane/enemy_plane.gd" id="1_e1h6v"]
-[ext_resource type="Texture2D" uid="uid://b54ku7dkufuc3" path="res://assets/plane.png" id="1_lt70h"]
-[ext_resource type="Texture2D" uid="uid://cj7cxfnhoafea" path="res://assets/prop.png" id="2_e1h6v"]
-[ext_resource type="Texture2D" uid="uid://b8qmvn8jyy6bp" path="res://assets/prop2.png" id="3_514om"]
+[ext_resource type="Texture2D" uid="uid://b54ku7dkufuc3" path="res://assets/default_plane/plane.png" id="1_lt70h"]
+[ext_resource type="Texture2D" uid="uid://cj7cxfnhoafea" path="res://assets/default_plane/prop.png" id="2_e1h6v"]
+[ext_resource type="Texture2D" uid="uid://b8qmvn8jyy6bp" path="res://assets/default_plane/prop2.png" id="3_514om"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yfveq"]
 atlas = ExtResource("2_e1h6v")

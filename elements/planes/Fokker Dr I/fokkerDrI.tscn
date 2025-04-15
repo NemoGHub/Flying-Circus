@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://df1ik0wdp8l5c"]
+
+[ext_resource type="PackedScene" uid="uid://6lnovjcmou1i" path="res://elements/planes/default_plane/default_plane.tscn" id="1_4kptq"]
+
+[node name="FokkerDrI" instance=ExtResource("1_4kptq")]

@@ -12,9 +12,9 @@ var direction = 0
 const bullet_scene = preload("res://elements/Bullet/bullet_2d.tscn")
 var smoke_scene = preload("res://elements/effects/smoke/smoke.tscn")
 
-var texture = preload("res://assets/plane.png")
-var texture_to_left = preload("res://assets/plane_to_left.png")
-var texture_to_right = preload("res://assets/plane_to_right.png")
+var texture = preload("res://assets/default_plane/plane.png")
+var texture_to_left = preload("res://assets/default_plane/plane_to_left.png")
+var texture_to_right = preload("res://assets/default_plane/plane_to_right.png")
 
 
 

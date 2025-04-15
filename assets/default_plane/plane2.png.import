@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://okbyittddhyv"
-path="res://.godot/imported/plane_to_right.png-d32ca7e5d079f9cb95f1c4d4a236d650.ctex"
+uid="uid://dypkpnidap2i2"
+path="res://.godot/imported/plane2.png-508ed372dd292021e7a396e37225af5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/plane_to_right.png"
-dest_files=["res://.godot/imported/plane_to_right.png-d32ca7e5d079f9cb95f1c4d4a236d650.ctex"]
+source_file="res://assets/default_plane/plane2.png"
+dest_files=["res://.godot/imported/plane2.png-508ed372dd292021e7a396e37225af5b.ctex"]
 
 [params]
 

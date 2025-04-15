@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqqjeyhs8ahyd"
-path="res://.godot/imported/plane_to_left.png-190cc4f90a7e2497cb408bee806cf81d.ctex"
+path="res://.godot/imported/plane_to_left.png-f4d98aaec275edc083c96a0e5ef267d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/plane_to_left.png"
-dest_files=["res://.godot/imported/plane_to_left.png-190cc4f90a7e2497cb408bee806cf81d.ctex"]
+source_file="res://assets/default_plane/plane_to_left.png"
+dest_files=["res://.godot/imported/plane_to_left.png-f4d98aaec275edc083c96a0e5ef267d7.ctex"]
 
 [params]
 
