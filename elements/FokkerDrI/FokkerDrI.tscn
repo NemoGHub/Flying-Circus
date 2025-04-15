@@ -61,7 +61,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bevt8"]
 size = Vector2(52, 45)
 
-[node name="Plane" type="Node2D"]
+[node name="FokkerDrI" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 texture_filter = 1

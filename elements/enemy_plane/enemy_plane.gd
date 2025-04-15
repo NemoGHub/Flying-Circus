@@ -1,17 +1,22 @@
 extends CharacterBody2D
 
-const SPEED = 1
+const SPEED = 1.3
 const turnRate = 300.0
 const HEALTH = 1
 var HEALTH_remains = HEALTH
 const ramDmage = 10
 var direction = 0
 
+
+
 const bullet_scene = preload("res://elements/Bullet/bullet_2d.tscn")
+var smoke_scene = preload("res://elements/effects/smoke/smoke.tscn")
+
 var texture = preload("res://assets/plane.png")
 var texture_to_left = preload("res://assets/plane_to_left.png")
 var texture_to_right = preload("res://assets/plane_to_right.png")
-var smoke_scene = preload("res://elements/effects/smoke.tscn")
+
+
 
 func _physics_process(delta: float) :
 	# Get the input direction and handle the movement/deceleration.
@@ -48,8 +53,8 @@ func shot_down():
 	$Timer.start()
 	
 func fall():
-	var smoke = smoke_scene.instantiate()
-	add_child(smoke) 
+	#var smoke = smoke_scene.instantiate()
+	#add_child(smoke) 
 	if direction > 0.0:
 		$Sprite2D.texture = texture_to_right
 	elif direction < 0.0:
@@ -60,6 +65,7 @@ func fall():
 		queue_free()
 	$Sprite2D.scale -= Vector2(0.005, 0.005)
 	velocity.x = direction * turnRate
+	velocity.y *= 1.5
 	move_and_slide()
 
 

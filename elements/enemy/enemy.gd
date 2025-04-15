@@ -1,9 +1,12 @@
 extends Node2D
 
-var enemy_plane = preload("res://elements/enemy_plane/enemy_plane.tscn")
+var default_plane = preload("res://elements/enemy_plane/enemy_plane.tscn")
+var AircoDH2 = preload("res://elements/Airco DH2/airco_dh_2.tscn")
 var spawn_rate = 3
 var spawn_area_width = 1000.0
 var screen_width: float
+var planes = [default_plane, AircoDH2]
+var weights = [1, 1]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +25,8 @@ func _on_timer_timeout():
 	spawn_enemy()
 	
 func spawn_enemy():
+	var rng = RandomNumberGenerator.new()
+	var enemy_plane = planes[rng.rand_weighted(weights)]
 	if !enemy_plane:
 		return
 	
