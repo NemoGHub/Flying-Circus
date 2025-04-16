@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://6lnovjcmou1i"]
+[gd_scene load_steps=18 format=3 uid="uid://6lnovjcmou1i"]
 
 [ext_resource type="Script" uid="uid://dbjjgt5kr5k05" path="res://elements/planes/default_plane/default_plane.gd" id="1_4nnsg"]
 [ext_resource type="Texture2D" uid="uid://b54ku7dkufuc3" path="res://assets/default_plane/plane.png" id="2_gp26i"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d1cn2ds53louw" path="res://assets/MGtracers/tratata/tratata4.png" id="9_2ajl0"]
 [ext_resource type="Texture2D" uid="uid://ibgc4ooojv48" path="res://assets/MGtracers/tratata/tratata5.png" id="10_tc2q7"]
 [ext_resource type="Texture2D" uid="uid://b5ynvjk3m7f48" path="res://assets/MGtracers/tratata/tratata6.png" id="11_bap04"]
+[ext_resource type="Script" uid="uid://vrtef2u28j2c" path="res://elements/planes/default_plane/camera_2d.gd" id="12_0kcan"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yfveq"]
 atlas = ExtResource("3_n723d")
@@ -93,6 +94,10 @@ position = Vector2(-1, -6.5)
 shape = SubResource("RectangleShape2D_5hkga")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
 limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_right_margin = 0.0
+script = ExtResource("12_0kcan")
