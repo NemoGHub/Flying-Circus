@@ -1,4 +1,4 @@
-extends Planes
+extends Fighter
 
 func  _ready() -> void:
 	HEALTH = 3

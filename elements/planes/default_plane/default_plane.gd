@@ -2,7 +2,7 @@ class_name Planes
 
 extends CharacterBody2D
 
-var isPlayer := false  
+var isPlayer := false
 
 var HEALTH = 10
 var HEALTH_remains = HEALTH
