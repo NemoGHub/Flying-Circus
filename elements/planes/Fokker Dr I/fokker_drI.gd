@@ -5,7 +5,7 @@ extends Planes
 func  _ready() -> void:
 	HEALTH = 5
 	ramDmage = 10
-	SPEED = 140 #r крейсерская 140; максимальная 185
+	SPEED = 185 #r крейсерская 140; максимальная 185
 	turnRate = 300.0
 	fireRate = 0.12 * 0.5 # 2 * MG08
 	AMMO = 800 # Хз сколько 

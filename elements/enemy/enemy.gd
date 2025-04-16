@@ -1,19 +1,17 @@
 extends Node2D
 
 var default_plane = preload("res://elements/enemy_plane/enemy_plane.tscn")
-#var AircoDH2 = preload("res://elements/Airco DH2/airco_dh_2.tscn")
 var AircoDH2 = preload("res://elements/planes/Airco DH2/airco_dh_2.tscn")
 var FokkerDrI = preload("res://elements/planes/Fokker Dr I/fokkerDrI.tscn")
-var spawn_rate = 3
-var spawn_area_width = 1000.0
-var screen_width: float
 var planes = [default_plane, AircoDH2, FokkerDrI]
 var weights = [1, 1, 1]
 
-var player : Node2D
-var spawn_distance = 400
-var spawn_arc_degrees = 120.0
+var screen_width: float
 
+var player : Node2D
+var spawn_distance = 1000
+var spawn_arc_degrees = 90.0
+var spawn_rate = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

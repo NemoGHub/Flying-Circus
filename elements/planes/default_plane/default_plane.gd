@@ -8,6 +8,7 @@ var HEALTH = 10
 var HEALTH_remains = HEALTH
 var ramDmage = 10
 var SPEED = 1
+var SPEED_coef = 3
 var turnRate = 150.0
 var fireRate = 0.2
 var AMMO = 100
@@ -26,7 +27,7 @@ var smooth_speed = 5.0
 
 func _ready() -> void:
 	pass
-
+		
 func _process(delta: float) -> void:
 	# Фиксируем камеру по вертикали (центр экрана)
 	camera.position.y = -200 
@@ -42,7 +43,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) :
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var collision = move_and_collide(Vector2.UP * SPEED * delta)
+	var collision = move_and_collide(Vector2.UP * (SPEED * 0.75) * SPEED_coef * delta)
 	if collision:
 		var collider = collision.get_collider()
 		if collider and collider.has_method("shot"):
