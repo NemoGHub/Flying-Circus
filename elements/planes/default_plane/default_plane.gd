@@ -13,7 +13,7 @@ var turnRate = 150.0
 var fireRate = 0.2
 var AMMO = 100
 var time_since_last_shot = 0.0
-var direction
+var direction = 0.0
 
 
 var bullet_scene = preload("res://elements/Bullet/bullet_2d.tscn")
@@ -48,9 +48,9 @@ func _physics_process(delta: float) :
 		var collider = collision.get_collider()
 		if collider and collider.has_method("shot"):
 			print('RAM_EM!')
-			collider.shot(ramDmage)		
-	if not isPlayer:                                   
-		pass
+			collider.shot(ramDmage)
+	if not isPlayer:             
+			velocity.x = direction * turnRate
 	else:
 		if Input.is_action_pressed("ui_accept"):
 			if AMMO > 0:			
@@ -59,15 +59,17 @@ func _physics_process(delta: float) :
 					mg_fire()
 					time_since_last_shot = 0.0
 					print("Fire! MG08 left: " + str(AMMO))		
-		var direction := Input.get_axis("ui_left", "ui_right")
+		direction = Input.get_axis("ui_left", "ui_right")
 		#print(direction)
-		match direction:
-			-1.0: $Sprite2D.texture = texture_to_left
-			1.0: $Sprite2D.texture = texture_to_right
-			_:	$Sprite2D.texture = texture
-		velocity.x = direction * turnRate
+	if direction < -0.2:
+		$Sprite2D.texture = texture_to_left
+	elif direction > 0.2:
+		$Sprite2D.texture = texture_to_right
+	else:
+		$Sprite2D.texture = texture
+	velocity.x = direction * turnRate
 	#global_position.x = direction * SPEED * delta
-		move_and_slide()
+	move_and_slide()
 		
 
 	

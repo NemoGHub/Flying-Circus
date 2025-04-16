@@ -7,11 +7,15 @@ func  _ready() -> void:
 	turnRate = 250.0
 	fireRate = 0.1 # 500-600 rounds per minute
 	AMMO = 47 * 3
+	plane = get_node(".")
 	
 	texture = preload("res://assets/Airco D.H.2/dh2.png")
 	texture_to_left = preload("res://assets/Airco D.H.2/dh2_to_left.png")
 	texture_to_right = preload("res://assets/Airco D.H.2/dh2_to_right.png")
 	#var smoke_scene = preload("res://elements/effects/smoke.tscn")
+	
+	if not get_tree().get_nodes_in_group("Player").is_empty():
+		player = get_tree().get_nodes_in_group("Player")[0]
 	
 #func mg_fire():
 	#var shell = bullet_scene.instantiate()	

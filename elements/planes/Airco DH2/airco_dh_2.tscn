@@ -87,8 +87,6 @@ speed_scale = 5.0
 position = Vector2(-0.5, -5.5)
 shape = SubResource("RectangleShape2D_bh4vp")
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
 limit_smoothed = true
@@ -97,5 +95,9 @@ drag_vertical_enabled = true
 drag_left_margin = 0.0
 drag_right_margin = 0.0
 script = ExtResource("12_ka6to")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer_evading" type="Timer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
