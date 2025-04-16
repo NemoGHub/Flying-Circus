@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 800.0 * 2
 const DAMAGE = 1
-var collision_effect = preload("res://elements/effects/small_hit/small_hit.tscn")
+var collision_effect =preload("res://elements/effects/boom/boom_1/boom_1.tscn")
 
 func _ready():
 	# Проверка загрузки текстуры

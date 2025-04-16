@@ -20,7 +20,7 @@ var bullet_scene = preload("res://elements/Bullet/bullet_2d.tscn")
 var texture = preload("res://assets/default_plane/plane.png")
 var texture_to_left = preload("res://assets/default_plane/plane_to_left.png")
 var texture_to_right = preload("res://assets/default_plane/plane_to_right.png")
-
+var boom_effect = preload("res://elements/effects/boom/boom_3/boom_3.tscn")
 
 @onready var camera : Camera2D = $Camera2D
 var smooth_speed = 5.0
@@ -92,8 +92,11 @@ func shot(damage):
 		shot_down()
 		
 func shot_down():
+	set_physics_process(false)
+	add_child(boom_effect.instantiate())
 	print('Shot down!')
-	queue_free()
+	$CollisionShape2D.queue_free()
+	$Sprite2D.queue_free()
 	
 	
 	
