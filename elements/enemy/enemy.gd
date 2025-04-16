@@ -3,12 +3,14 @@ extends Node2D
 var default_plane = preload("res://elements/enemy_plane/enemy_plane.tscn")
 var AircoDH2 = preload("res://elements/planes/Airco DH2/airco_dh_2.tscn")
 var FokkerDrI = preload("res://elements/planes/Fokker Dr I/fokkerDrI.tscn")
-var planes = [default_plane, AircoDH2, FokkerDrI]
+var planes  = [default_plane, AircoDH2, FokkerDrI]
+var Entente = [AircoDH2]
+var CentralEmpires = [FokkerDrI]
 var weights = [1, 1, 1]
 
 var screen_width: float
 
-var player : Node2D
+var player : Planes
 var spawn_distance = 1000
 var spawn_arc_degrees = 90.0
 var spawn_rate = 3
@@ -19,7 +21,8 @@ func _ready() -> void:
 	# Запускаем таймер спавна
 	$Timer.wait_time = spawn_rate
 	$Timer.start()	
-
+		
+			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -28,6 +31,10 @@ func _process(delta: float) -> void:
 func _on_timer_timeout():
 	player = get_tree().get_nodes_in_group("Player")[0]
 	if player:
+		if player.is_in_group("Entente"):
+			weights = [1, 2, 5]
+		elif player.is_in_group("CentralEmpires"):
+			weights = [1, 5, 2]
 		print('Another bandit!')
 		spawn_enemy(player)
 		

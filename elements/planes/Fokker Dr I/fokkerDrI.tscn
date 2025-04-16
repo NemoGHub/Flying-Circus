@@ -20,7 +20,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="FokkerDrI" instance=ExtResource("1_4kptq")]
+[node name="FokkerDrI" groups=["CentralEmpires"] instance=ExtResource("1_4kptq")]
 script = ExtResource("2_qdsi6")
 
 [node name="Sprite2D" parent="." index="0"]

@@ -62,7 +62,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bh4vp"]
 size = Vector2(51, 13)
 
-[node name="Airco DH2" type="CharacterBody2D"]
+[node name="Airco DH2" type="CharacterBody2D" groups=["Entente"]]
 texture_filter = 1
 motion_mode = 1
 script = ExtResource("1_jr1k3")
