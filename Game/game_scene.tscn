@@ -1,16 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://bouhbsvjrlhbd"]
+[gd_scene load_steps=5 format=3 uid="uid://bouhbsvjrlhbd"]
 
-[ext_resource type="PackedScene" uid="uid://b37u3jfhnjx0g" path="res://elements/wall/wall.tscn" id="2_k7opx"]
+[ext_resource type="Texture2D" uid="uid://jk3kuy8c1c0u" path="res://assets/Ground/11506812.png" id="2_mftfb"]
 [ext_resource type="PackedScene" uid="uid://mvt356a2jwa4" path="res://elements/enemy/enemy.tscn" id="3_k7opx"]
+[ext_resource type="Texture2D" uid="uid://da77px14mcrfs" path="res://assets/Ground/placeholder.png" id="3_mftfb"]
 [ext_resource type="PackedScene" uid="uid://dgmnrupa1xuw" path="res://elements/user_plane/user_plane.tscn" id="4_mftfb"]
 
 [node name="GameScene" type="Node2D"]
 
-[node name="wall" parent="." instance=ExtResource("2_k7opx")]
-position = Vector2(-17, -146)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="wall-R" parent="." instance=ExtResource("2_k7opx")]
-position = Vector2(1534, -145)
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2000, 4800)
+
+[node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -10
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(789, -36)
+scale = Vector2(1, 0.978)
+texture = ExtResource("3_mftfb")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 5000)
+region_filter_clip_enabled = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2500, 1000)
+
+[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(779, 513)
+texture = ExtResource("2_mftfb")
 
 [node name="Enemy Scene" parent="." instance=ExtResource("3_k7opx")]
 position = Vector2(35, -2)
