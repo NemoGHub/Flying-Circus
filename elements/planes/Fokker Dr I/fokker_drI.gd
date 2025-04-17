@@ -11,7 +11,7 @@ func  _ready() -> void:
 	SPEED = 185 #r крейсерская 140; максимальная 185
 	turnRate = 300.0
 	fireRate = 0.12 * 0.5 # 2 * MG08
-	AMMO = 800 # Хз сколько 
+	AMMO = 600 # Хз сколько 
 	plane = get_node(".")
 	
 	texture = preload("res://assets/FokkerDrI/fokker_dr1.png")
