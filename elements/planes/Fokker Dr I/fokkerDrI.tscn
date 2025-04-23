@@ -40,7 +40,7 @@ autoplay = "default"
 frame_progress = 0.00599439
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -13)
+position = Vector2(0, -15.5)
 
 [node name="Timer_evading" type="Timer" parent="." index="3"]
 

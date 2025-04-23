@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://hlpyg0gflxcn"]
+
+[ext_resource type="PackedScene" uid="uid://6lnovjcmou1i" path="res://elements/planes/default_plane/default_plane.tscn" id="1_apm6c"]
+[ext_resource type="Texture2D" uid="uid://co87xhh64rvkc" path="res://assets/GothaGV/GothaGV.png" id="2_2mdpn"]
+[ext_resource type="Script" uid="uid://duxn3sullwvy2" path="res://elements/planes/Gotha GV/gotha_gv.gd" id="2_kplvg"]
+[ext_resource type="Texture2D" uid="uid://cq1jq6t013ifp" path="res://assets/GothaGV/GothaGV-prop1.png" id="3_kplvg"]
+[ext_resource type="Texture2D" uid="uid://dsxdpcp06ymgm" path="res://assets/GothaGV/GothaGV-prop2.png" id="4_cnard"]
+[ext_resource type="Texture2D" uid="uid://b2k3swl4ydjt8" path="res://assets/GothaGV/GothaGV-scarf1.png" id="5_ffidv"]
+[ext_resource type="Texture2D" uid="uid://chkfl2pdhr8ai" path="res://assets/GothaGV/GothaGV-scarf2.png" id="6_g7y8k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ve7db"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kplvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cnard")
+}],
+"loop": true,
+"name": &"propeller",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("5_ffidv")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_g7y8k")
+}],
+"loop": true,
+"name": &"scarf",
+"speed": 5.0
+}]
+
+[node name="GothaGV" groups=["CentralEmpires"] instance=ExtResource("1_apm6c")]
+script = ExtResource("2_kplvg")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_2mdpn")
+
+[node name="AnimatedSprite2D" parent="Sprite2D" index="0"]
+sprite_frames = SubResource("SpriteFrames_ve7db")
+autoplay = ""
+frame_progress = 0.186123
+
+[node name="AnimatedScarf" type="AnimatedSprite2D" parent="Sprite2D" index="1"]
+sprite_frames = SubResource("SpriteFrames_ve7db")
+animation = &"scarf"
+autoplay = "scarf"
+frame_progress = 0.0491203
+speed_scale = 3.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-0.5, -21)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="3"]
+polygon = PackedVector2Array(-16, 59, -1, 57, 16, 58, 19, 52, 17, 47, 4, 36, 5, -15, 32, -15, 106, -9, 105, -25, 6, -37, 6, -55, 0, -58, -5, -55, -5, -37, -106, -26, -105, -13, -105, -8, -31, -16, -7, -16, -3, 35, -18, 47, -20, 52)

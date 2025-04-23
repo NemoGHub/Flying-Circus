@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hkga"]
-size = Vector2(52, 20)
+size = Vector2(52, 17)
 
 [node name="default_plane" type="CharacterBody2D"]
 script = ExtResource("1_4nnsg")
