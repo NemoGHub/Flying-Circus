@@ -1,8 +1,10 @@
+class_name Bullet
 extends CharacterBody2D
 
 
 const SPEED = 800.0 * 2
 const DAMAGE = 1
+var direction = 0.0
 var collision_effect =preload("res://elements/effects/boom/boom_1/boom_1.tscn")
 
 func _ready():

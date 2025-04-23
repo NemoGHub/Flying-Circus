@@ -7,11 +7,11 @@ var isEvading := false
 
 func  _ready() -> void:
 	HEALTH = 5
-	ramDmage = 10
+	ramDamage = 10
 	SPEED = 185 #r крейсерская 140; максимальная 185
 	turnRate = 300.0
 	fireRate = 0.12 * 0.5 # 2 * MG08
-	AMMO = 600 # Хз сколько 
+	AMMO = 250 * 2
 	plane = get_node(".")
 	
 	texture = preload("res://assets/FokkerDrI/fokker_dr1.png")
@@ -41,9 +41,6 @@ func  evasive_manuever():
 func stop_evasion():
 	direction = 0.0
 	isEvading = false
-	
-func set_rand_directon():
-	direction = 	randf_range(-1.0, 1.0)
 
 
 func _on_timer_evading_timeout() -> void:

@@ -33,9 +33,9 @@ func _on_timer_timeout():
 	player = get_tree().get_nodes_in_group("Player")[0]
 	if player:
 		if player.is_in_group("Entente"):
-			weights = [0, 2, 4, 10]
+			weights = [0, 2, 4, 1]
 		elif player.is_in_group("CentralEmpires"):
-			weights = [0, 5, 2, 10]
+			weights = [0, 5, 2, 2]
 		print('Another bandit!')
 		spawn_enemy(player)
 		

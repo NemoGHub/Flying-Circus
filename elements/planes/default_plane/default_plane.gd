@@ -6,7 +6,7 @@ var isPlayer := false
 
 var HEALTH = 10
 var HEALTH_remains = HEALTH
-var ramDmage = 10
+var ramDamage = 10
 var SPEED = 1
 var SPEED_coef = 3
 var turnRate = 150.0
@@ -47,8 +47,9 @@ func _physics_process(delta: float) :
 	if collision:
 		var collider = collision.get_collider()
 		if collider and collider.has_method("shot"):
-			print('RAM_EM!')
-			collider.shot(ramDmage)
+			print('RAM_EM!' + (str(collider.ramDamage)))
+			shot(collider.ramDamage)
+			collider.shot(ramDamage)
 	if not isPlayer:             
 			velocity.x = direction * turnRate
 	else:
@@ -86,8 +87,9 @@ func animate_fire():
 	$Sprite2D/tratata.play("tratata")
 	
 func shot(damage):
-	HEALTH -= damage
-	if HEALTH < 0:
+	
+	HEALTH_remains -= damage
+	if HEALTH_remains < 0:
 		print('Hit')
 		shot_down()
 		
@@ -98,6 +100,7 @@ func shot_down():
 	$CollisionShape2D.queue_free()
 	$Sprite2D.queue_free()
 	
-	
+func set_rand_directon():
+	direction = 	randf_range(-1.0, 1.0)
 	
 	

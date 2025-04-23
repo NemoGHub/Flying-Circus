@@ -41,7 +41,7 @@ texture = ExtResource("2_2mdpn")
 
 [node name="AnimatedSprite2D" parent="Sprite2D" index="0"]
 sprite_frames = SubResource("SpriteFrames_ve7db")
-frame_progress = 0.535544
+frame_progress = 0.39945
 
 [node name="AnimatedScarf" type="AnimatedSprite2D" parent="Sprite2D" index="1"]
 sprite_frames = SubResource("SpriteFrames_ve7db")
@@ -49,6 +49,12 @@ animation = &"scarf"
 autoplay = "scarf"
 frame_progress = 0.0491203
 speed_scale = 3.0
+
+[node name="tratata" parent="Sprite2D" index="2"]
+position = Vector2(0, 13)
+rotation = 3.13906
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-0.5, -21)
