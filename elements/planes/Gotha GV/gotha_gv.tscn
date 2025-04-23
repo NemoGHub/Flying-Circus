@@ -41,7 +41,7 @@ texture = ExtResource("2_2mdpn")
 
 [node name="AnimatedSprite2D" parent="Sprite2D" index="0"]
 sprite_frames = SubResource("SpriteFrames_ve7db")
-frame_progress = 0.174529
+frame_progress = 0.535544
 
 [node name="AnimatedScarf" type="AnimatedSprite2D" parent="Sprite2D" index="1"]
 sprite_frames = SubResource("SpriteFrames_ve7db")
