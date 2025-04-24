@@ -14,7 +14,12 @@ var fireRate = 0.2
 var AMMO = 100
 var time_since_last_shot = 0.0
 var direction = 0.0
+#var current_direction := 0.0  # Текущее фактическое направление (с инерцией)
+var target_direction := 0.0  # Целевое направление (ввод игрока)
+var velocity_x := 0.0  # Горизонтальная скорость (для плавности)
 
+var stability := 0.2  # Путевая устойчивость (0-1, где 1 - мгновенная остановка)
+var inertia := 0.5  # Инертность поворота (0-1, где 1 - максимальная инерция)
 
 var bullet_scene = preload("res://elements/Bullet/bullet_2d.tscn")
 var texture = preload("res://assets/default_plane/plane.png")
@@ -31,10 +36,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Фиксируем камеру по вертикали (центр экрана)
 	camera.position.y = -200 
-	# Или смещаем относительно игрока (например, на 50 пикселей выше)
-	#if camera:
-		# Плавное следование по Y (пример)
-		#camera.position.y = lerp(camera.position.y, 0.0, 5.0 * delta)
 	
 	if HEALTH_remains < 0:
 		#fall()
@@ -44,7 +45,7 @@ func _physics_process(delta: float) :
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if not isPlayer:             
-			velocity.x = direction * turnRate
+			velocity.x = target_direction * turnRate
 	else:
 		if Input.is_action_pressed("ui_accept"):
 			if AMMO > 0:			
@@ -53,8 +54,18 @@ func _physics_process(delta: float) :
 					mg_fire()
 					time_since_last_shot = 0.0
 					print("Fire! MG08 left: " + str(AMMO))		
-		direction = Input.get_axis("ui_left", "ui_right")
+		#direction = Input.get_axis("ui_left", "ui_right")
 		#print(direction)
+	 # Получаем ввод игрока
+		target_direction = Input.get_axis("ui_left", "ui_right")
+		# Плавное изменение направления с инерцией
+	direction = lerp(direction, target_direction, stability * delta * 10)
+	
+	# Применяем инерцию к скорости поворота
+	velocity_x = lerp(velocity_x, direction * turnRate, (1.0 - inertia) * delta * 10)
+		
+		# Обновление спрайта
+		#update_sprite_direction()
 	if direction < -0.2:
 		$Sprite2D.texture = texture_to_left
 	elif direction > 0.2:
@@ -64,7 +75,8 @@ func _physics_process(delta: float) :
 	#velocity.x = direction * turnRate
 	#global_position.x = direction * SPEED * delta
 	#move_and_slide()
-	var collision = move_and_collide(Vector2(direction * turnRate, (-1.0 * (SPEED * 0.75) * SPEED_coef)) * delta)
+	var motion = Vector2(velocity_x, -SPEED * 0.75 * SPEED_coef) * delta
+	var collision = move_and_collide(motion)
 	if collision:
 		var collider = collision.get_collider()
 		if collider and collider.has_method("shot"):
@@ -101,6 +113,6 @@ func shot_down():
 	$Sprite2D.queue_free()
 	
 func set_rand_directon():
-	direction = 	randf_range(-1.0, 1.0)
+	target_direction = 	randf_range(-1.0, 1.0)
 	
 	

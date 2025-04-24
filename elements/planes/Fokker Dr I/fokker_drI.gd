@@ -9,7 +9,7 @@ func  _ready() -> void:
 	HEALTH = 5
 	ramDamage = 10
 	SPEED = 185 #r крейсерская 140; максимальная 185
-	turnRate = 300.0
+	turnRate = 600.0
 	fireRate = 0.12 * 0.5 # 2 * MG08
 	AMMO = 250 * 2
 	plane = get_node(".")
