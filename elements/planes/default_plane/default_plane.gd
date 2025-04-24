@@ -43,13 +43,6 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) :
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var collision = move_and_collide(Vector2.UP * (SPEED * 0.75) * SPEED_coef * delta)
-	if collision:
-		var collider = collision.get_collider()
-		if collider and collider.has_method("shot"):
-			print('RAM_EM!' + (str(collider.ramDamage)))
-			shot(collider.ramDamage)
-			collider.shot(ramDamage)
 	if not isPlayer:             
 			velocity.x = direction * turnRate
 	else:
@@ -68,9 +61,16 @@ func _physics_process(delta: float) :
 		$Sprite2D.texture = texture_to_right
 	else:
 		$Sprite2D.texture = texture
-	velocity.x = direction * turnRate
+	#velocity.x = direction * turnRate
 	#global_position.x = direction * SPEED * delta
-	move_and_slide()
+	#move_and_slide()
+	var collision = move_and_collide(Vector2(direction * turnRate, (-1.0 * (SPEED * 0.75) * SPEED_coef)) * delta)
+	if collision:
+		var collider = collision.get_collider()
+		if collider and collider.has_method("shot"):
+			print('RAM_EM!' + (str(collider.ramDamage)))
+			shot(collider.ramDamage)
+			collider.shot(ramDamage)
 		
 
 	
@@ -79,7 +79,7 @@ func mg_fire():
 	animate_fire()
 	AMMO -= 1
 	var shell = bullet_scene.instantiate()	
-	shell.global_position = global_position + Vector2(0, -50)
+	shell.global_position = global_position + Vector2(0, -60)
 	add_child(shell)
 
 	
