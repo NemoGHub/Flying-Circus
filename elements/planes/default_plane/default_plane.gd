@@ -66,9 +66,9 @@ func _physics_process(delta: float) :
 		
 		# Обновление спрайта
 		#update_sprite_direction()
-	if direction < -0.2:
+	if target_direction < -0.2:
 		$Sprite2D.texture = texture_to_left
-	elif direction > 0.2:
+	elif target_direction > 0.2:
 		$Sprite2D.texture = texture_to_right
 	else:
 		$Sprite2D.texture = texture

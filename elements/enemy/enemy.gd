@@ -4,10 +4,11 @@ var default_plane = preload("res://elements/enemy_plane/enemy_plane.tscn")
 var AircoDH2 = preload("res://elements/planes/Airco DH2/airco_dh_2.tscn")
 var FokkerDrI = preload("res://elements/planes/Fokker Dr I/fokkerDrI.tscn")
 var GothaGV = preload("res://elements/planes/Gotha GV/gotha_gv.tscn")
-var planes  = [default_plane, AircoDH2, FokkerDrI, GothaGV]
-var Entente = [AircoDH2]
+var BreguetXIV = preload("res://elements/planes/Breguet XIV/breguet_xiv.tscn")
+var planes  = [default_plane, AircoDH2, FokkerDrI, GothaGV, BreguetXIV]
+var Entente = [AircoDH2, BreguetXIV]
 var CentralEmpires = [FokkerDrI, GothaGV]
-var weights = [0, 1, 1, 1]
+var weights = [0, 1, 1, 1, 1]
 
 var screen_width: float
 
@@ -33,9 +34,9 @@ func _on_timer_timeout():
 	player = get_tree().get_nodes_in_group("Player")[0]
 	if player:
 		if player.is_in_group("Entente"):
-			weights = [0, 2, 4, 1]
+			weights = [0, 2, 4, 1, 1]
 		elif player.is_in_group("CentralEmpires"):
-			weights = [0, 5, 2, 2]
+			weights = [0, 5, 2, 1, 2]
 		print('Another bandit!')
 		spawn_enemy(player)
 		

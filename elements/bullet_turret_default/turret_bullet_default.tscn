@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://2lif8wuemkfy"]
 
 [ext_resource type="Script" uid="uid://cbplcjco4qprf" path="res://elements/bullet_turret_default/turret_bullet_default.gd" id="1_o8atk"]
-[ext_resource type="Texture2D" uid="uid://bqyg5r78uqg35" path="res://assets/MGtracers/mg08-1.png" id="2_hgr6i"]
+[ext_resource type="Texture2D" uid="uid://c41oiqp0n3sn2" path="res://assets/MGtracers/mg08-2.png" id="2_v4chg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdxl2"]
 radius = 2.0
@@ -17,11 +17,13 @@ shape = SubResource("CircleShape2D_mdxl2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, 7)
-texture = ExtResource("2_hgr6i")
+position = Vector2(5.96046e-08, -9)
+rotation = 3.14159
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_v4chg")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0.5, 15.5)
+position = Vector2(2.98023e-08, -14)
 scale = Vector2(0.15, 1.75)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

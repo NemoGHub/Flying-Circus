@@ -1,6 +1,6 @@
 #extends "res://elements/planes/default_plane/default_plane.gd"
 
-class_name Bomber
+class_name Bombers
 extends Planes
 
 var player : Planes
@@ -18,12 +18,14 @@ func  _ready() -> void:
 	AMMO = 75 # Хз сколько 
 	plane = get_node(".")
 	
+	texture = preload("res://assets/GothaGV/GothaGV.png")
+	bullet_scene = preload("res://elements/bullet_turret_default/turret_bullet_default.tscn")
+	
 	turret_direction = randf_range(-1.0,1.0)
 	if randi() % 2:
 		turretToRight = false
-	
-	texture = preload("res://assets/GothaGV/GothaGV.png")
-	bullet_scene = preload("res://elements/bullet_turret_default/turret_bullet_default.tscn")
+		texture = preload("res://assets/GothaGV/GothaGV-camo.png")
+
 
 	if not get_tree().get_nodes_in_group("Player").is_empty():
 		player = get_tree().get_nodes_in_group("Player")[0]
