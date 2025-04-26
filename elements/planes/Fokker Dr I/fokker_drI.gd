@@ -51,5 +51,4 @@ func shot_down():
 	$Sprite2D.queue_free()
 
 func _on_timer_evading_timeout() -> void:
-	print("timer")
 	evasive_manuever()

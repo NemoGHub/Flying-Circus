@@ -8,6 +8,11 @@ var HEALTH = 10
 var HEALTH_remains = HEALTH
 var ramDamage = 10
 var SPEED = 1
+var throttle = 0.75
+var target_throttle = 0.75
+const MIN_THROTTLE := 0.7
+const MAX_THROTTLE := 1.2
+const THROTTLE_CHANGE_SPEED := 2.0  # Скорость изменения дросселя
 var SPEED_coef = 3
 var turnRate = 150.0
 var fireRate = 0.2
@@ -58,9 +63,20 @@ func _physics_process(delta: float) :
 		#print(direction)
 	 # Получаем ввод игрока
 		target_direction = Input.get_axis("ui_left", "ui_right")
-		# Плавное изменение направления с инерцией
-	direction = lerp(direction, target_direction, stability * delta * 10)
+		var throttle_input = Input.get_axis("ui_down", "ui_up")
+		target_throttle += throttle_input * delta * 0.5  # Меняем множитель для скорости реакции
+		# Ограничиваем target_throttle
+		target_throttle = clamp(target_throttle, MIN_THROTTLE, MAX_THROTTLE)
+		# Плавное изменение текущего throttle к целевому
+		throttle = lerp(throttle, target_throttle, THROTTLE_CHANGE_SPEED * delta)
+		# Дополнительная "страховка" ограничения (хотя lerp+clamp target уже должны обеспечить)
+		throttle = clamp(throttle, MIN_THROTTLE, MAX_THROTTLE)
 	
+	
+	# Плавное изменение направления с инерцией
+	direction = lerp(direction, target_direction, stability * delta * 10)
+		# Получаем ввод для дросселя (ось "вверх/вниз")
+	# Плавное изменение target_throttle с учетом ввода
 	# Применяем инерцию к скорости поворота
 	velocity_x = lerp(velocity_x, direction * turnRate, (1.0 - inertia) * delta * 10)
 		
@@ -75,7 +91,7 @@ func _physics_process(delta: float) :
 	#velocity.x = direction * turnRate
 	#global_position.x = direction * SPEED * delta
 	#move_and_slide()
-	var motion = Vector2(velocity_x, -SPEED * 0.75 * SPEED_coef) * delta
+	var motion = Vector2(velocity_x, -SPEED * throttle * SPEED_coef) * delta
 	var collision = move_and_collide(motion)
 	if collision:
 		var collider = collision.get_collider()

@@ -37,7 +37,6 @@ func _on_timer_timeout():
 			weights = [0, 2, 4, 1, 1]
 		elif player.is_in_group("CentralEmpires"):
 			weights = [0, 5, 2, 1, 2]
-		print('Another bandit!')
 		spawn_enemy(player)
 		
 #func spawn_enemy_old():
