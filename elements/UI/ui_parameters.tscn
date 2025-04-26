@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://di0ecneiadapp"]
+
+[ext_resource type="Script" uid="uid://l4q67vdwmdtm" path="res://elements/UI/ui_parameters.gd" id="1_2xnjc"]
+
+[node name="UI_parameters" type="CanvasLayer"]
+script = ExtResource("1_2xnjc")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 22.0
+offset_top = 21.0
+offset_right = 164.0
+offset_bottom = 105.0
+
+[node name="SpeedLabel" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 21.0
+offset_right = 143.0
+offset_bottom = 44.0
+text = "SPEED"
+
+[node name="AmmoLabel" type="Label" parent="."]
+offset_left = 29.0
+offset_top = 51.0
+offset_right = 135.0
+offset_bottom = 74.0
+text = "MG08"
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = 29.0
+offset_top = 77.0
+offset_right = 159.0
+offset_bottom = 100.0
+text = "HP"
