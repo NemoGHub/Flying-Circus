@@ -66,11 +66,11 @@ func _physics_process(delta: float) :
 		var throttle_input = Input.get_axis("ui_down", "ui_up")
 		target_throttle += throttle_input * delta * 0.5  # Меняем множитель для скорости реакции
 		# Ограничиваем target_throttle
-		target_throttle = clamp(target_throttle, MIN_THROTTLE, MAX_THROTTLE)
-		# Плавное изменение текущего throttle к целевому
-		throttle = lerp(throttle, target_throttle, THROTTLE_CHANGE_SPEED * delta)
-		# Дополнительная "страховка" ограничения (хотя lerp+clamp target уже должны обеспечить)
-		throttle = clamp(throttle, MIN_THROTTLE, MAX_THROTTLE)
+	target_throttle = clamp(target_throttle, MIN_THROTTLE, MAX_THROTTLE)
+	# Плавное изменение текущего throttle к целевому
+	throttle = lerp(throttle, target_throttle, THROTTLE_CHANGE_SPEED * delta)
+	# Дополнительная "страховка" ограничения (хотя lerp+clamp target уже должны обеспечить)
+	throttle = clamp(throttle, MIN_THROTTLE, MAX_THROTTLE)
 	
 	
 	# Плавное изменение направления с инерцией

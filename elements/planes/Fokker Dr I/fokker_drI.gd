@@ -35,11 +35,16 @@ func _process(delta: float) -> void:
 			stop_evasion()
 func  evasive_manuever():
 	set_rand_directon()
+	target_throttle = 1.0
 	$Timer_evading.wait_time = randf_range(0.5, 2.0)
 	$Timer_evading.start()
 	
+func speed_up():
+	pass
+	
 func stop_evasion():
 	direction = 0.0
+	target_throttle = 0.75
 	isEvading = false
 
 func shot_down():
