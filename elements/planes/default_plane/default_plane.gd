@@ -7,13 +7,14 @@ var isPlayer := false
 var HEALTH = 10
 var HEALTH_remains = HEALTH
 var ramDamage = 10
+var airspeed := 0.0
 var SPEED = 1
 var throttle = 0.75
 var target_throttle = 0.75
 const MIN_THROTTLE := 0.65
 const MAX_THROTTLE := 1.0
 const THROTTLE_CHANGE_SPEED := 2.0  # Скорость изменения дросселя
-var SPEED_coef = 3
+var SPEED_coef = -3
 var turnRate = 150.0
 var fireRate = 0.2
 var AMMO = 100
@@ -21,6 +22,8 @@ var time_since_last_shot = 0.0
 var direction = 0.0
 #var current_direction := 0.0  # Текущее фактическое направление (с инерцией)
 var target_direction := 0.0  # Целевое направление (ввод игрока)
+var energy_conservation = 0.05 # Чем больше - тем больше скорости ЛА теряет при маневрах
+var energy_loss := 0.0 
 var velocity_x := 0.0  # Горизонтальная скорость (для плавности)
 
 var stability := 0.2  # Путевая устойчивость (0-1, где 1 - мгновенная остановка)
@@ -79,7 +82,7 @@ func _physics_process(delta: float) :
 	# Плавное изменение target_throttle с учетом ввода
 	# Применяем инерцию к скорости поворота
 	velocity_x = lerp(velocity_x, direction * turnRate, (1.0 - inertia) * delta * 10)
-		
+	energy_loss = abs(velocity_x * energy_conservation) 
 		# Обновление спрайта
 		#update_sprite_direction()
 	if target_direction < -0.2:
@@ -91,7 +94,8 @@ func _physics_process(delta: float) :
 	#velocity.x = direction * turnRate
 	#global_position.x = direction * SPEED * delta
 	#move_and_slide()
-	var motion = Vector2(velocity_x, -SPEED * throttle * SPEED_coef) * delta
+	airspeed = SPEED * throttle - energy_loss
+	var motion = Vector2(velocity_x, airspeed * SPEED_coef) * delta
 	var collision = move_and_collide(motion)
 	if collision:
 		var collider = collision.get_collider()

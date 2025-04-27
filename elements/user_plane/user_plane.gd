@@ -18,7 +18,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Обновляем UI при изменении значений
-	$"../UI_parameters".update_display(player.SPEED * player.throttle, player.AMMO, player.HEALTH_remains)
+	$"../UI_parameters".update_display(player.airspeed, player.AMMO, player.HEALTH_remains)
 
 func setPlayer():
 	#print(node.get_index())

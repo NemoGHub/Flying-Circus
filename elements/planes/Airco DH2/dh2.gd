@@ -5,6 +5,7 @@ func  _ready() -> void:
 	ramDamage = 10
 	SPEED = 150 
 	turnRate = 500.0
+	energy_conservation = 0.1
 	fireRate = 0.1 # 500-600 rounds per minute
 	AMMO = 47 * 3
 	plane = get_node(".")
