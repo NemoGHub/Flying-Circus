@@ -8,9 +8,11 @@ var isEvading := false
 func  _ready() -> void:
 	HEALTH = 5
 	ramDamage = 10
+	mass = 406.0
+	engine_hp = 110
 	SPEED = 185 #r крейсерская 140; максимальная 185
 	turnRate = 600.0
-	energy_conservation = 0.3
+	energy_conservation = 0.1
 	fireRate = 0.12 * 0.5 # 2 * MG08
 	AMMO = 250 * 2
 	plane = get_node(".")

@@ -6,14 +6,16 @@ var isPlayer := false
 
 var HEALTH = 10
 var HEALTH_remains = HEALTH
+var mass := 1.0
+var engine_hp := 1
 var ramDamage = 10
-var airspeed := 0.0
+var airspeed := 100.0
 var SPEED = 1
 var throttle = 0.75
 var target_throttle = 0.75
 const MIN_THROTTLE := 0.65
 const MAX_THROTTLE := 1.0
-const THROTTLE_CHANGE_SPEED := 2.0  # Скорость изменения дросселя
+var THROTTLE_CHANGE_SPEED = engine_hp / mass  # Скорость изменения дросселя
 var SPEED_coef = -3
 var turnRate = 150.0
 var fireRate = 0.2
@@ -44,7 +46,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Фиксируем камеру по вертикали (центр экрана)
 	camera.position.y = -200 
-	
 	if HEALTH_remains < 0:
 		#fall()
 		queue_free()
@@ -75,7 +76,6 @@ func _physics_process(delta: float) :
 	# Дополнительная "страховка" ограничения (хотя lerp+clamp target уже должны обеспечить)
 	throttle = clamp(throttle, MIN_THROTTLE, MAX_THROTTLE)
 	
-	
 	# Плавное изменение направления с инерцией
 	direction = lerp(direction, target_direction, stability * delta * 10)
 		# Получаем ввод для дросселя (ось "вверх/вниз")
@@ -94,7 +94,8 @@ func _physics_process(delta: float) :
 	#velocity.x = direction * turnRate
 	#global_position.x = direction * SPEED * delta
 	#move_and_slide()
-	airspeed = SPEED * throttle - energy_loss
+	airspeed = lerp(airspeed, SPEED * throttle - energy_loss, delta) 
+	
 	var motion = Vector2(velocity_x, airspeed * SPEED_coef) * delta
 	var collision = move_and_collide(motion)
 	if collision:
