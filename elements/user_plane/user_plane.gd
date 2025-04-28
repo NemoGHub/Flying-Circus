@@ -1,3 +1,4 @@
+class_name UserPlane
 extends Node2D
 
 const default_plane = preload("res://elements/planes/default_plane/default_plane.tscn")

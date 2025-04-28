@@ -8,7 +8,7 @@ var BreguetXIV = preload("res://elements/planes/Breguet XIV/breguet_xiv.tscn")
 var planes  = [default_plane, AircoDH2, FokkerDrI, GothaGV, BreguetXIV]
 var Entente = [AircoDH2, BreguetXIV]
 var CentralEmpires = [FokkerDrI, GothaGV]
-var weights = [0, 1, 1, 1, 1]
+var weights = [0, 3, 3, 1, 1]
 
 var screen_width: float
 
@@ -33,10 +33,10 @@ func _process(delta: float) -> void:
 func _on_timer_timeout():
 	player = get_tree().get_nodes_in_group("Player")[0]
 	if player:
-		if player.is_in_group("Entente"):
-			weights = [0, 2, 4, 1, 1]
-		elif player.is_in_group("CentralEmpires"):
-			weights = [0, 5, 2, 1, 2]
+		#if player.is_in_group("Entente"):
+			#weights = [0, 2, 4, 1, 1]
+		#elif player.is_in_group("CentralEmpires"):
+			#weights = [0, 5, 2, 1, 2]
 		spawn_enemy(player)
 		
 #func spawn_enemy_old():

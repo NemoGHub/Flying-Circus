@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsnkdaxuu138x"]
+
+[ext_resource type="Texture2D" uid="uid://cl4ssjfavn4lo" path="res://assets/Ground/water.png" id="1_kywss"]
+[ext_resource type="Texture2D" uid="uid://jk3kuy8c1c0u" path="res://assets/Ground/11506812.png" id="2_un12s"]
+[ext_resource type="PackedScene" uid="uid://mvt356a2jwa4" path="res://elements/enemy/enemy.tscn" id="3_igxsn"]
+[ext_resource type="PackedScene" uid="uid://dgmnrupa1xuw" path="res://elements/user_plane/user_plane.tscn" id="4_0unc6"]
+[ext_resource type="Script" uid="uid://ce6ai307iw4o0" path="res://Game/levels/dh2-mission/enemy_dh2.gd" id="4_un12s"]
+[ext_resource type="Script" uid="uid://qthuofikeamj" path="res://Game/levels/dh2-mission/user_dh_2.gd" id="5_k6j05"]
+[ext_resource type="PackedScene" uid="uid://di0ecneiadapp" path="res://elements/UI/ui_parameters/ui_parameters.tscn" id="6_6kk1m"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(2000, 4800)
+
+[node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -10
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(789, -36)
+scale = Vector2(1, 0.978)
+texture = ExtResource("1_kywss")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 5000)
+region_filter_clip_enabled = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2500, 1000)
+
+[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(779, 513)
+texture = ExtResource("2_un12s")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="Enemy Scene" parent="." instance=ExtResource("3_igxsn")]
+position = Vector2(35, -2)
+scale = Vector2(2, 2)
+script = ExtResource("4_un12s")
+
+[node name="UserPlane" parent="." instance=ExtResource("4_0unc6")]
+position = Vector2(694, 703)
+script = ExtResource("5_k6j05")
+
+[node name="UI_parameters" parent="." instance=ExtResource("6_6kk1m")]

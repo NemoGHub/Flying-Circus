@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0eq3smfqr58r"]
+
+[ext_resource type="PackedScene" uid="uid://dgmnrupa1xuw" path="res://elements/user_plane/user_plane.tscn" id="1_jujvj"]
+[ext_resource type="Script" uid="uid://qthuofikeamj" path="res://Game/levels/dh2-mission/user_dh_2.gd" id="2_ckbi7"]
+
+[node name="UserDH2" instance=ExtResource("1_jujvj")]
+script = ExtResource("2_ckbi7")

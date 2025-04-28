@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jk3kuy8c1c0u" path="res://assets/Ground/11506812.png" id="2_mftfb"]
 [ext_resource type="PackedScene" uid="uid://mvt356a2jwa4" path="res://elements/enemy/enemy.tscn" id="3_k7opx"]
 [ext_resource type="PackedScene" uid="uid://dgmnrupa1xuw" path="res://elements/user_plane/user_plane.tscn" id="4_mftfb"]
-[ext_resource type="PackedScene" uid="uid://di0ecneiadapp" path="res://elements/UI/ui_parameters.tscn" id="5_bk43t"]
+[ext_resource type="PackedScene" uid="uid://di0ecneiadapp" path="res://elements/UI/ui_parameters/ui_parameters.tscn" id="5_bk43t"]
 
 [node name="GameScene" type="Node2D"]
 

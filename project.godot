@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Flying Circus"
-run/main_scene="uid://bouhbsvjrlhbd"
+run/main_scene="uid://cg550pilehv06"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/image="uid://diea6bskf4b3x"
 config/icon="res://icon.svg"
