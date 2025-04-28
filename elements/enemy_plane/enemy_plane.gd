@@ -10,7 +10,6 @@ var direction = 0
 
 
 const bullet_scene = preload("res://elements/Bullet/bullet_2d.tscn")
-var smoke_scene = preload("res://elements/effects/smoke/smoke.tscn")
 
 var texture = preload("res://assets/default_plane/plane.png")
 var texture_to_left = preload("res://assets/default_plane/plane_to_left.png")
@@ -29,8 +28,8 @@ func _physics_process(delta: float) :
 			print('RAM_EM!')
 			collider.shot(ramDmage)
 			queue_free()
-	if HEALTH_remains < 0:
-		fall()
+	#if HEALTH_remains < 0:
+		#fall()
 	#if HEALTH_remains < HEALTH:
 		#var smoke = smoke_scene.instantiate()
 		#add_child(smoke) 

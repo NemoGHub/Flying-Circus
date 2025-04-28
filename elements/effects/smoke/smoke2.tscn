@@ -1,0 +1,151 @@
+[gd_scene load_steps=22 format=3 uid="uid://nyviv6f8hq5c"]
+
+[ext_resource type="Texture2D" uid="uid://cdcj01eksg0ta" path="res://assets/effects/Smoke-Sheet.png" id="1_s3y7n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmn55"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4dea"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vfdr"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn425"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy6vb"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgye2"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i083k"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jd4g"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8v11"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t5ik"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhqoe"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooler"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajw33"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(0, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scds4"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(80, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a5l3"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(160, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_633ac"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(240, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e3xo"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(0, 320, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ain2r"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(80, 320, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q0wi"]
+atlas = ExtResource("1_s3y7n")
+region = Rect2(160, 320, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjxfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmn55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4dea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vfdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn425")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy6vb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgye2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i083k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jd4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8v11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t5ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhqoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooler")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajw33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scds4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a5l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_633ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e3xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ain2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q0wi")
+}],
+"loop": true,
+"name": &"smoke",
+"speed": 12.0
+}]
+
+[node name="Sparks" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_rjxfd")
+animation = &"sparks"
+autoplay = "sparks"
+frame = 6
+frame_progress = 1.0

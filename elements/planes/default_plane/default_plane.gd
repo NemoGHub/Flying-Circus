@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 var isPlayer := false
 
-var HEALTH = 10
+var HEALTH = 10.0
 var HEALTH_remains = HEALTH
 var mass := 1.0
 var engine_hp := 1
@@ -36,6 +36,9 @@ var texture = preload("res://assets/default_plane/plane.png")
 var texture_to_left = preload("res://assets/default_plane/plane_to_left.png")
 var texture_to_right = preload("res://assets/default_plane/plane_to_right.png")
 var boom_effect = preload("res://elements/effects/boom/boom_3/boom_3.tscn")
+var flaming_effect = preload("res://elements/effects/flaming_effects/flaming_rocket_fire.tscn")
+var smoke_effect1 = preload("res://elements/effects/smoke/smoke1.tscn")
+var smoke_effect2 = preload("res://elements/effects/smoke/smoke2.tscn")
 
 @onready var camera : Camera2D = $Camera2D
 var smooth_speed = 5.0
@@ -46,11 +49,21 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Фиксируем камеру по вертикали (центр экрана)
 	camera.position.y = -200 
-	if HEALTH_remains < 0:
-		#fall()
-		queue_free()
+	health_check()
+		
+func health_check():
+	var health_ratio = HEALTH / HEALTH_remains
+	print(health_ratio)
+	#if HEALTH_remains < 0:
+		#queue_free()
+	##elif health_ratio < 0.1:
+		#add_child(flaming_effect)
+		#add_child(smoke_effect2)
+	#elif  health_ratio < 0.7:
+		#add_child(smoke_effect1)
 
 func _physics_process(delta: float) :
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if not isPlayer:             

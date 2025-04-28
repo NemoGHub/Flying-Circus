@@ -27,6 +27,7 @@ func  _ready() -> void:
 		
 		
 func _process(delta: float) -> void:
+	health_check()
 	if (not isPlayer) and player:
 		#var player_positionX = player.global_position.x
 		#print(player_positionX)
