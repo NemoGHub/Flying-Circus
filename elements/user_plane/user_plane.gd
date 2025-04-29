@@ -13,9 +13,11 @@ var player : Planes
 func _ready() -> void:
 	var plane = get_plane().instantiate()
 	plane.isPlayer = true
-	add_child(plane)
+	var plane_box = Node2D.new()
+	plane_box.add_child(plane)
 	plane.add_to_group("Player")
 	player = plane
+	add_child(plane_box)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

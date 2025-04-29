@@ -6,7 +6,8 @@ var plane : Planes
 var isEvading := false
 
 func  _ready() -> void:
-	HEALTH = 5
+	HEALTH = 10.0
+	HEALTH_remains = HEALTH
 	ramDamage = 10
 	mass = 406.0
 	engine_hp = 110
@@ -27,7 +28,7 @@ func  _ready() -> void:
 		
 		
 func _process(delta: float) -> void:
-	health_check()
+	#health_check()
 	if (not isPlayer) and player:
 		#var player_positionX = player.global_position.x
 		#print(player_positionX)

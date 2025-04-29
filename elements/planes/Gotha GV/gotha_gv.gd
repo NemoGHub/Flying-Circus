@@ -10,7 +10,8 @@ var turret_direction = 0.0
 var turretToRight := true
 
 func  _ready() -> void:
-	HEALTH = 15
+	HEALTH = 20
+	HEALTH_remains = HEALTH
 	ramDamage = 100
 	SPEED = 140 # максимальная 140
 	turnRate = 100.0

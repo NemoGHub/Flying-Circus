@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 var isPlayer := false
 
-var HEALTH = 10.0
+var HEALTH = 1.0
 var HEALTH_remains = HEALTH
 var mass := 1.0
 var engine_hp := 1
@@ -50,20 +50,8 @@ func _process(delta: float) -> void:
 	# Фиксируем камеру по вертикали (центр экрана)
 	camera.position.y = -200 
 	
-		
-func health_check():
-	var health_ratio = HEALTH / HEALTH_remains
-	#print(health_ratio)
-	if HEALTH_remains < 0:
-		shot_down()
-	##elif health_ratio < 0.1:
-		#add_child(flaming_effect)
-		#add_child(smoke_effect2)
-	#elif  health_ratio < 0.7:
-		#add_child(smoke_effect1)
 
 func _physics_process(delta: float) :
-	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if not isPlayer:             
@@ -118,9 +106,6 @@ func _physics_process(delta: float) :
 			shot(collider.ramDamage)
 			collider.shot(ramDamage)
 		
-
-	
-	
 func mg_fire():
 	animate_fire()
 	AMMO -= 1
@@ -131,13 +116,30 @@ func mg_fire():
 	
 func animate_fire():
 	$Sprite2D/tratata.play("tratata")
-	
+
+func health_check():
+	var health_ratio = HEALTH_remains / HEALTH 
+	print(health_ratio)
+	if health_ratio < 0.6:
+		var effect = flaming_effect.instantiate()
+		#effect.global_position = position
+		add_child(effect)
+		#add_sibling(smoke_effect2.instantiate())
+	if  health_ratio < 0.5:
+		var effect = smoke_effect2.instantiate()
+		#effect.global_position = position
+		#effect.scale = Vector2(0.5, 0.5)
+		effect.global_position.y = 35
+		effect.z_index = -1
+		add_child(effect)
+		
+			
 func shot(damage):
 	HEALTH_remains -= damage
-	#if HEALTH_remains < 0:
-		#print('Hit')
-		#shot_down()
-	health_check()
+	if HEALTH_remains < 0:
+		shot_down()
+	else:
+		health_check()
 		
 func shot_down():
 	var boom = boom_effect.instantiate()

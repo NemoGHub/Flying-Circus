@@ -140,12 +140,12 @@ animations = [{
 }],
 "loop": true,
 "name": &"smoke",
-"speed": 12.0
+"speed": 24.0
 }]
 
-[node name="Sparks" type="AnimatedSprite2D"]
+[node name="Smoke" type="AnimatedSprite2D"]
+rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_rjxfd")
-animation = &"sparks"
-autoplay = "sparks"
-frame = 6
-frame_progress = 1.0
+animation = &"smoke"
+autoplay = "smoke"
+frame_progress = 0.263536

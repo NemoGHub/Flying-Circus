@@ -1,7 +1,8 @@
 extends Bombers
 
 func  _ready() -> void:
-	HEALTH = 10
+	HEALTH = 15
+	HEALTH_remains = HEALTH
 	ramDamage = 50
 	SPEED = 177 # максимальная 177
 	turnRate = 200.0

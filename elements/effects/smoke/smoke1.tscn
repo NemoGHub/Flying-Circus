@@ -147,4 +147,4 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_rjxfd")
 animation = &"smoke"
 autoplay = "smoke"
-frame_progress = 0.938756
+frame_progress = 0.142493

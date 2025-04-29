@@ -1,7 +1,8 @@
 extends Fighter
 
 func  _ready() -> void:
-	HEALTH = 3
+	HEALTH = 8.0
+	HEALTH_remains = HEALTH
 	ramDamage = 10
 	mass = 680.0
 	engine_hp = 110

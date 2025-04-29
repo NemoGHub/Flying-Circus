@@ -2,13 +2,14 @@ extends Node2D
 
 var default_plane = preload("res://elements/planes/default_plane/default_plane.tscn")
 var AircoDH2 = preload("res://elements/planes/Airco DH2/airco_dh_2.tscn")
+var FokkerEI = preload("res://elements/planes/Fokker E I/fokker_EI.tscn")
 var FokkerDrI = preload("res://elements/planes/Fokker Dr I/fokkerDrI.tscn")
 var GothaGV = preload("res://elements/planes/Gotha GV/gotha_gv.tscn")
 var BreguetXIV = preload("res://elements/planes/Breguet XIV/breguet_xiv.tscn")
-var planes  = [default_plane, AircoDH2, FokkerDrI, GothaGV, BreguetXIV]
+var planes  = [default_plane, AircoDH2, FokkerEI, FokkerDrI, GothaGV, BreguetXIV]
 var Entente = [AircoDH2, BreguetXIV]
-var CentralEmpires = [FokkerDrI, GothaGV]
-var weights = [0, 3, 3, 1, 1]
+var CentralEmpires = [FokkerEI, FokkerDrI, GothaGV]
+var weights = [0, 3, 2, 3, 1, 1]
 
 var screen_width: float
 
