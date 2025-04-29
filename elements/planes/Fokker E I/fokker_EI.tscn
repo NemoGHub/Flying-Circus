@@ -63,6 +63,7 @@ autoplay = "scarf"
 speed_scale = 3.0
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 position = Vector2(0, -15.5)
 
 [node name="Timer_evading" type="Timer" parent="." index="3"]

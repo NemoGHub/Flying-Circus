@@ -1,6 +1,6 @@
 extends Node2D
 
-var default_plane = preload("res://elements/enemy_plane/enemy_plane.tscn")
+var default_plane = preload("res://elements/planes/default_plane/default_plane.tscn")
 var AircoDH2 = preload("res://elements/planes/Airco DH2/airco_dh_2.tscn")
 var FokkerDrI = preload("res://elements/planes/Fokker Dr I/fokkerDrI.tscn")
 var GothaGV = preload("res://elements/planes/Gotha GV/gotha_gv.tscn")
@@ -53,8 +53,7 @@ func _on_timer_timeout():
 	#var spawn_x = randf_range(40, spawn_area_width)
 	#enemy.global_position = Vector2(spawn_x, -50)  # -50 выше экрана
 	
-func spawn_enemy(player: Node2D):
-	
+func spawn_enemy(player):
 	# 1. Получаем направление игрока вперёд
 	var player_forward = Vector2.UP.rotated(player.rotation)
 	# 2. Выбираем случайный угол в пределах полусферы
@@ -65,9 +64,13 @@ func spawn_enemy(player: Node2D):
 	
 	# 3. Вычисляем позицию спауна
 	var spawn_position = player.global_position + spawn_direction * spawn_distance
-		# Создаём врага
+	# Создаём врага
 	var enemy_plane= get_enemy().instantiate()
-	add_child(enemy_plane)
+	# Кладем его в коробочку-обертку
+	var enemy_box = Node2D.new()
+	enemy_box.add_child(enemy_plane)
+	# И вставляем в дерево
+	add_child(enemy_box)
 	enemy_plane.global_position = spawn_position
 	
 func get_enemy():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://6lnovjcmou1i"]
+[gd_scene load_steps=17 format=3 uid="uid://6lnovjcmou1i"]
 
 [ext_resource type="Script" uid="uid://dbjjgt5kr5k05" path="res://elements/planes/default_plane/default_plane.gd" id="1_4nnsg"]
 [ext_resource type="Texture2D" uid="uid://b54ku7dkufuc3" path="res://assets/default_plane/plane.png" id="2_gp26i"]
@@ -67,9 +67,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hkga"]
-size = Vector2(52, 17)
-
 [node name="default_plane" type="CharacterBody2D"]
 script = ExtResource("1_4nnsg")
 
@@ -88,10 +85,6 @@ position = Vector2(0, -27)
 sprite_frames = SubResource("SpriteFrames_0kcan")
 animation = &"tratata"
 speed_scale = 5.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -6.5)
-shape = SubResource("RectangleShape2D_5hkga")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0

@@ -67,11 +67,11 @@ func mg_fire():
 	shell.direction = turret_direction 
 	add_child(shell)
 
-func shot_down():
-	set_physics_process(false)
-	add_child(boom_effect.instantiate())
-	print('Shot down!')
-	plane.queue_free()
-	#$CollisionShape2D.queue_free()
-	#$Sprite2D.queue_free()
-	
+#func shot_down():
+	#set_physics_process(false)
+	#add_child(boom_effect.instantiate())
+	#print('Shot down!')
+	#plane.queue_free()
+	##$CollisionShape2D.queue_free()
+	##$Sprite2D.queue_free()
+	#

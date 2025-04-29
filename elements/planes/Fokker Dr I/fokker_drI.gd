@@ -51,13 +51,13 @@ func stop_evasion():
 	target_throttle = 0.75
 	isEvading = false
 
-func shot_down():
-	set_physics_process(false)
-	add_child(boom_effect.instantiate())
-	print('Shot down!')
-	$CollisionShape2D.queue_free()
-	$CollisionPolygon2D.queue_free()
-	$Sprite2D.queue_free()
+#func shot_down():
+	#set_physics_process(false)
+	#print('Shot down!')
+	#plane.add_sibling(boom_effect.instantiate())
+	##plane.queue_free()
+	##$CollisionPolygon2D.queue_free()
+	##$Sprite2D.queue_free()
 
 func _on_timer_evading_timeout() -> void:
 	evasive_manuever()

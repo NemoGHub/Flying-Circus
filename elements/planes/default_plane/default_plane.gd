@@ -49,13 +49,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Фиксируем камеру по вертикали (центр экрана)
 	camera.position.y = -200 
-	health_check()
+	
 		
 func health_check():
 	var health_ratio = HEALTH / HEALTH_remains
 	#print(health_ratio)
-	#if HEALTH_remains < 0:
-		#queue_free()
+	if HEALTH_remains < 0:
+		shot_down()
 	##elif health_ratio < 0.1:
 		#add_child(flaming_effect)
 		#add_child(smoke_effect2)
@@ -133,18 +133,26 @@ func animate_fire():
 	$Sprite2D/tratata.play("tratata")
 	
 func shot(damage):
-	
 	HEALTH_remains -= damage
-	if HEALTH_remains < 0:
-		print('Hit')
-		shot_down()
+	#if HEALTH_remains < 0:
+		#print('Hit')
+		#shot_down()
+	health_check()
 		
 func shot_down():
-	set_physics_process(false)
-	add_child(boom_effect.instantiate())
-	print('Shot down!')
-	$CollisionShape2D.queue_free()
-	$Sprite2D.queue_free()
+	var boom = boom_effect.instantiate()
+	boom.global_position = position
+	add_sibling(boom)
+	queue_free()
+	
+	#queue_free()
+	#print('Shot down!')
+	#$Sprite2D.queue_free()
+	#$CollisionShape2D.queue_free()
+	#$Sprite2D.queue_free()
+	
+		#set_physics_process(false)
+	#add_child(boom_effect.instantiate())
 	
 func set_rand_directon():
 	target_direction = 	randf_range(-1.0, 1.0)
