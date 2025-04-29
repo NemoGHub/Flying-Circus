@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 		
 func health_check():
 	var health_ratio = HEALTH / HEALTH_remains
-	print(health_ratio)
+	#print(health_ratio)
 	#if HEALTH_remains < 0:
 		#queue_free()
 	##elif health_ratio < 0.1:

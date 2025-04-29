@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddse7elpdvb8o"]
+
+[ext_resource type="Texture2D" uid="uid://cl4ssjfavn4lo" path="res://assets/Ground/water.png" id="1_k6efa"]
+[ext_resource type="Texture2D" uid="uid://jk3kuy8c1c0u" path="res://assets/Ground/11506812.png" id="2_jm3tu"]
+[ext_resource type="PackedScene" uid="uid://mvt356a2jwa4" path="res://elements/enemy/enemy.tscn" id="3_ppjr6"]
+[ext_resource type="Script" uid="uid://ds1xerenlg50b" path="res://Game/levels/mission-1915-fokker-scourge/enemy_fokker_scourge.gd" id="4_k6efa"]
+[ext_resource type="PackedScene" uid="uid://dgmnrupa1xuw" path="res://elements/user_plane/user_plane.tscn" id="5_8ksdk"]
+[ext_resource type="Script" uid="uid://cuyvd3voaukqn" path="res://Game/levels/mission-1915-fokker-scourge/user_fokker_scourge.gd" id="6_jm3tu"]
+[ext_resource type="PackedScene" uid="uid://di0ecneiadapp" path="res://elements/UI/ui_parameters/ui_parameters.tscn" id="7_iw64m"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(2000, 4800)
+
+[node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -10
+z_as_relative = false
+texture_repeat = 2
+position = Vector2(789, -36)
+scale = Vector2(1, 0.978)
+texture = ExtResource("1_k6efa")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 5000)
+region_filter_clip_enabled = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2500, 1000)
+
+[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(779, 513)
+texture = ExtResource("2_jm3tu")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="Enemy Scene" parent="." instance=ExtResource("3_ppjr6")]
+position = Vector2(35, -2)
+scale = Vector2(2, 2)
+script = ExtResource("4_k6efa")
+
+[node name="UserPlane" parent="." instance=ExtResource("5_8ksdk")]
+position = Vector2(694, 703)
+script = ExtResource("6_jm3tu")
+
+[node name="UI_parameters" parent="." instance=ExtResource("7_iw64m")]

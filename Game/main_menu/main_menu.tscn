@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg550pilehv06"]
+[gd_scene load_steps=12 format=3 uid="uid://cg550pilehv06"]
 
 [ext_resource type="Texture2D" uid="uid://g1mac86yxgxl" path="res://assets/GothaGV/GothaGV-1(hd).png" id="1_2uogn"]
 [ext_resource type="Script" uid="uid://8d0rhu7vcb6c" path="res://Game/main_menu/main_menu.gd" id="1_444o2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ban2t2vstkan2" path="res://assets/GothaGV/GothaGV-camo.png" id="3_2uogn"]
 [ext_resource type="Texture2D" uid="uid://cadfy2yb32yvs" path="res://assets/FokkerDrI/FokkerDrI-blueprint-white.jpg" id="3_h2f0f"]
 [ext_resource type="Texture2D" uid="uid://bvgn6uky7ug42" path="res://assets/Breguet XIV/Breguet_xiv.png" id="4_444o2"]
+[ext_resource type="Texture2D" uid="uid://dw8wr3hj14cym" path="res://assets/FokkerEI/FokkerEI.png" id="9_k71nm"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_h2f0f"]
 
@@ -23,6 +24,7 @@ grow_vertical = 2
 script = ExtResource("1_444o2")
 
 [node name="background3" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1494.0
 offset_bottom = 848.0
 texture = ExtResource("2_3j7x6")
@@ -105,3 +107,10 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ceu5l")
 text = "Exit"
 icon = ExtResource("4_444o2")
+
+[node name="level_fokker_scourge" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ceu5l")
+text = "Summer 1915: Fokker Scourge"
+icon = ExtResource("9_k71nm")

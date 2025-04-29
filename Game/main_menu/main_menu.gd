@@ -19,6 +19,8 @@ func _on_button_pressed(button_name: String):
 			get_tree().change_scene_to_file("res://Game/levels/fokkerDrI-mission/fokkerDrI-mis.tscn")
 		"level3_btn":
 			get_tree().change_scene_to_file("res://Game/game_scene.tscn")
+		"level_fokker_scourge":
+			get_tree().change_scene_to_file("res://Game/levels/mission-1915-fokker-scourge/mission_1915_fokker_scourge.tscn")
 		"ExitButton":
 			get_tree().quit()  # Для мобильных платформ используйте SceneTree.quit()
 	# Кнопка выхода

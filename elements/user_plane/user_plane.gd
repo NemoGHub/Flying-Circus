@@ -4,8 +4,9 @@ extends Node2D
 const default_plane = preload("res://elements/planes/default_plane/default_plane.tscn")
 const FokkerDrI = preload("res://elements/planes/Fokker Dr I/fokkerDrI.tscn")
 const  DH2 = preload("res://elements/planes/Airco DH2/airco_dh_2.tscn")
-var planes = [DH2, FokkerDrI]
-var weights = [1, 1]
+const FokkerEI = preload("res://elements/planes/Fokker E I/fokker_EI.tscn")
+var planes = [DH2, FokkerDrI, FokkerEI]
+var weights = [1, 1, 1]
 var player : Planes
 
 # Called when the node enters the scene tree for the first time.
