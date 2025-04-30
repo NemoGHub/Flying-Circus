@@ -62,13 +62,9 @@ animation = &"scarf"
 autoplay = "scarf"
 speed_scale = 3.0
 
-[node name="CollisionShape2D" parent="." index="1"]
-visible = false
-position = Vector2(0, -15.5)
+[node name="Timer_evading" type="Timer" parent="." index="2"]
 
-[node name="Timer_evading" type="Timer" parent="." index="3"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="3"]
 polygon = PackedVector2Array(4, -22, -4, -22, -4, -18, -28, -18, -32, -7, -2, -7, -2, 16, -10, 22, 10, 22, 2, 16, 2, -7, 32, -7, 28, -18, 4, -18)
 
 [connection signal="timeout" from="Timer_evading" to="." method="_on_timer_evading_timeout"]

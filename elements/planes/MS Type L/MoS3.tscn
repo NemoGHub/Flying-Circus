@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://fsl87ssubnco"]
 
 [ext_resource type="PackedScene" uid="uid://6lnovjcmou1i" path="res://elements/planes/default_plane/default_plane.tscn" id="1_ww7pc"]
-[ext_resource type="Script" uid="uid://ddw448qvueoks" path="res://elements/planes/Fokker E I/fokker_ei.gd" id="2_seoa2"]
-[ext_resource type="Texture2D" uid="uid://dw8wr3hj14cym" path="res://assets/FokkerEI/FokkerEI.png" id="3_jfniu"]
+[ext_resource type="Script" uid="uid://vqcnjydlfx4d" path="res://elements/planes/MS Type L/MoS3.gd" id="2_lwpuf"]
+[ext_resource type="Texture2D" uid="uid://cxlgf1f6t6amk" path="res://assets/MS Type L/MoS3.png" id="3_lwpuf"]
 [ext_resource type="Texture2D" uid="uid://curmxlykkh41h" path="res://assets/FokkerEI/prop1.png" id="4_k4yxj"]
 [ext_resource type="Texture2D" uid="uid://bsmb8wxj5b3g1" path="res://assets/FokkerEI/prop2.png" id="5_p18bp"]
 [ext_resource type="Texture2D" uid="uid://d0kuide3gglnv" path="res://assets/Breguet XIV/Breguet_xiv_scarf_small1.png" id="6_qsqfx"]
@@ -37,38 +37,39 @@ animations = [{
 }]
 
 [node name="FokkerEI" groups=["CentralEmpires"] instance=ExtResource("1_ww7pc")]
-script = ExtResource("2_seoa2")
+script = ExtResource("2_lwpuf")
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_jfniu")
+texture = ExtResource("3_lwpuf")
 
 [node name="AnimatedSprite2D" parent="Sprite2D" index="0"]
 visible = false
+frame_progress = 0.796185
 
 [node name="tratata" parent="Sprite2D" index="1"]
-position = Vector2(0, -38)
+position = Vector2(1, -31)
 frame = 7
 frame_progress = 1.0
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Sprite2D" index="2"]
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_8y78s")
 animation = &"prop"
 autoplay = "prop"
-frame_progress = 0.906542
+frame_progress = 0.624423
 
 [node name="AnimatedScarf" type="AnimatedSprite2D" parent="Sprite2D" index="3"]
+position = Vector2(1, 11)
 sprite_frames = SubResource("SpriteFrames_2ku1g")
 animation = &"scarf"
 autoplay = "scarf"
+frame_progress = 0.0131861
 speed_scale = 3.0
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="Timer_evading" type="Timer" parent="." index="2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="3"]
 visible = false
-position = Vector2(0, -15.5)
-
-[node name="Timer_evading" type="Timer" parent="." index="3"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="4"]
 polygon = PackedVector2Array(4, -22, -4, -22, -4, -18, -28, -18, -32, -7, -2, -7, -2, 16, -10, 22, 10, 22, 2, 16, 2, -7, 32, -7, 28, -18, 4, -18)
 
 [connection signal="timeout" from="Timer_evading" to="." method="_on_timer_evading_timeout"]
