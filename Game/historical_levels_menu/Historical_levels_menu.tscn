@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=3 uid="uid://dif4lkydm2krv"]
+
+[ext_resource type="Script" uid="uid://dkvup7hhy6t62" path="res://Game/historical_levels_menu/historical_levels_menu.gd" id="1_dodhf"]
+[ext_resource type="Texture2D" uid="uid://gi5bjfhwbilu" path="res://assets/FokkerDrI/FokkerDrI-blueprint.jpg" id="2_epm8d"]
+[ext_resource type="Texture2D" uid="uid://cadfy2yb32yvs" path="res://assets/FokkerDrI/FokkerDrI-blueprint-white.jpg" id="3_4g7aj"]
+[ext_resource type="Texture2D" uid="uid://g1mac86yxgxl" path="res://assets/GothaGV/GothaGV-1(hd).png" id="4_ijc74"]
+[ext_resource type="Texture2D" uid="uid://46vxupxihnlt" path="res://assets/Airco D.H.2/dh2.png" id="5_55no5"]
+[ext_resource type="Texture2D" uid="uid://pugcwnswidcp" path="res://assets/FokkerDrI/fokker_dr1_1.png" id="6_xbje7"]
+[ext_resource type="Texture2D" uid="uid://cxlgf1f6t6amk" path="res://assets/MS Type L/MoS3.png" id="7_dodhf"]
+[ext_resource type="Texture2D" uid="uid://bvgn6uky7ug42" path="res://assets/Breguet XIV/Breguet_xiv.png" id="8_28h8r"]
+[ext_resource type="Texture2D" uid="uid://dw8wr3hj14cym" path="res://assets/FokkerEI/FokkerEI.png" id="9_jomy3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h2f0f"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ceu5l"]
+
+[node name="HistoricalLevelsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dodhf")
+
+[node name="background3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1494.0
+offset_bottom = 848.0
+texture = ExtResource("2_epm8d")
+expand_mode = 1
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1494.0
+offset_bottom = 848.0
+texture = ExtResource("3_4g7aj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="background2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1494.0
+offset_bottom = 848.0
+texture = ExtResource("4_ijc74")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="background2"]
+visible = false
+layout_mode = 0
+offset_left = 439.0
+offset_top = 105.0
+offset_right = 479.0
+offset_bottom = 145.0
+texture = SubResource("CanvasTexture_h2f0f")
+
+[node name="Panel" type="Panel" parent="background2"]
+visible = false
+layout_mode = 0
+offset_left = 439.0
+offset_top = 105.0
+offset_right = 1070.0
+offset_bottom = 747.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 165.0
+offset_right = 1052.0
+offset_bottom = 663.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 127.0
+offset_right = 1030.0
+offset_bottom = 690.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="level_fokker_scourge_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ceu5l")
+text = "Summer 1915: Fokker Scourge
+Fokker E.I \"Eindecker\""
+icon = ExtResource("9_jomy3")
+
+[node name="level_dh2_strikes_back_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ceu5l")
+text = "Autemn 1915: Entente Strikes Back
+Airco DH.2"
+icon = ExtResource("5_55no5")
+
+[node name="level3_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ceu5l")
+text = "Placeholder c:
+"
+icon = ExtResource("7_dodhf")
+
+[node name="level_the_red_baron_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ceu5l")
+text = "Spring 1918: The Last Days of The Red Baron
+Fokker Dr.I Dreidecker"
+icon = ExtResource("6_xbje7")
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ceu5l")
+text = "Back"
+icon = ExtResource("8_28h8r")

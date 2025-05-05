@@ -13,16 +13,15 @@ func _ready():
 	
 func _on_button_pressed(button_name: String):
 	match button_name:
-		"level1_btn":
+		
+		"level_fokker_scourge_btn":
+			get_tree().change_scene_to_file("res://Game/levels/mission-1915-fokker-scourge/mission_1915_fokker_scourge.tscn")
+		"level_dh2_strikes_back_btn":
 			get_tree().change_scene_to_file("res://Game/levels/dh2-mission/dh2-mis.tscn")
-		"level2_btn":
+		"level_the_red_baron_btn":
 			get_tree().change_scene_to_file("res://Game/levels/fokkerDrI-mission/fokkerDrI-mis.tscn")
-		"level3_btn":
-			get_tree().change_scene_to_file("res://Game/game_scene.tscn")
-		"historical_levels_btn":
-			get_tree().change_scene_to_file("res://Game/historical_levels_menu/Historical_levels_menu.tscn")
-		"ExitButton":
-			get_tree().quit()  # Для мобильных платформ используйте SceneTree.quit()
+		"BackButton":
+			get_tree().change_scene_to_file("res://Game/main_menu/main_menu.tscn")
 	# Кнопка выхода
 	#var exit_button = Button.new()
 	#exit_button.text = "Выход"

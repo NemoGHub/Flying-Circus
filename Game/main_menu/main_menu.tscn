@@ -108,9 +108,9 @@ button_group = SubResource("ButtonGroup_ceu5l")
 text = "Exit"
 icon = ExtResource("4_444o2")
 
-[node name="level_fokker_scourge" type="Button" parent="VBoxContainer"]
+[node name="historical_levels_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ceu5l")
-text = "Summer 1915: Fokker Scourge"
+text = "Historical Levels"
 icon = ExtResource("9_k71nm")
