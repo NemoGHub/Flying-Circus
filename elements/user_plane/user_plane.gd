@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://Game/main_menu/main_menu.tscn")
 	 #Обновляем UI при изменении значений
 	else:
-		$"../UI_parameters".update_display(player.airspeed, player.AMMO, player.HEALTH_remains)
+		$"../UI_parameters".update_display(player.airspeed, player.AMMO, player.HEALTH_remains, player.victories)
 
 func setPlayer():
 	#print(node.get_index())

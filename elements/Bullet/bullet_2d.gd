@@ -26,7 +26,7 @@ func hit(delta: float, collision):
 		var collider = collision.get_collider()
 		if collider and collider.has_method("shot"):
 			print('Попадание')
-			collider.shot(DAMAGE)
+			collider.shot(DAMAGE, get_parent())
 		$CollisionShape2D.queue_free()
 		$Sprite2D.queue_free()
 		move_local_y(delta * 100)

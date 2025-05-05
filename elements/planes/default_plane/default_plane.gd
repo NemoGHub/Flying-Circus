@@ -40,6 +40,8 @@ var flaming_effect = preload("res://elements/effects/flaming_effects/flaming_roc
 var smoke_effect1 = preload("res://elements/effects/smoke/smoke1.tscn")
 var smoke_effect2 = preload("res://elements/effects/smoke/smoke2.tscn")
 
+var victories := 0
+
 @onready var camera : Camera2D = $Camera2D
 var smooth_speed = 5.0
 
@@ -101,10 +103,10 @@ func _physics_process(delta: float) :
 	var collision = move_and_collide(motion)
 	if collision:
 		var collider = collision.get_collider()
-		if collider and collider.has_method("shot"):
+		if collider and collider.has_method("ram"):
 			print('RAM_EM!' + (str(collider.ramDamage)))
-			shot(collider.ramDamage)
-			collider.shot(ramDamage)
+			ram(collider.ramDamage) 
+			collider.ram(ramDamage)
 		
 func mg_fire():
 	animate_fire()
@@ -133,17 +135,33 @@ func health_check():
 		effect.z_index = -1
 		add_child(effect)
 		
-			
-func shot(damage):
+	
+func ram(damage):
 	HEALTH_remains -= damage
 	if HEALTH_remains < 0:
-		shot_down()
+			shot_down()
+	else:
+		health_check()		
+func shot(damage, shooter : Planes):
+	HEALTH_remains -= damage
+	if HEALTH_remains < 0:
+		if shooter.isPlayer:
+			shot_down_by_player(shooter)
+		else:
+			shot_down()
 	else:
 		health_check()
 		
 func shot_down():
 	var boom = boom_effect.instantiate()
 	boom.global_position = position
+	add_sibling(boom)
+	queue_free()
+	
+func shot_down_by_player(shooter: Planes): # Почему то он посчитал добавление перегрузки в прошлый метод ошибкой...
+	var boom = boom_effect.instantiate()
+	boom.global_position = position
+	shooter.count_the_victory()
 	add_sibling(boom)
 	queue_free()
 	
@@ -158,5 +176,8 @@ func shot_down():
 	
 func set_rand_directon():
 	target_direction = 	randf_range(-1.0, 1.0)
+	
+func count_the_victory():
+	victories += 1
 	
 	
