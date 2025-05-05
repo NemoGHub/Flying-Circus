@@ -79,18 +79,25 @@ offset_bottom = 690.0
 theme_override_constants/separation = 10
 alignment = 1
 
+[node name="historical_levels_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ceu5l")
+text = "Historical Levels"
+icon = ExtResource("9_k71nm")
+
 [node name="level1_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ceu5l")
-text = "level 1: Airco DH.2"
+text = "Airco DH.2"
 icon = ExtResource("1_y67r4")
 
 [node name="level2_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ceu5l")
-text = "level 2: Fokker Dr.I Dreidecker"
+text = "Fokker Dr.I Dreidecker"
 icon = ExtResource("2_qefsa")
 
 [node name="level3_btn" type="Button" parent="VBoxContainer"]
@@ -107,10 +114,3 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ceu5l")
 text = "Exit"
 icon = ExtResource("4_444o2")
-
-[node name="historical_levels_btn" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-toggle_mode = true
-button_group = SubResource("ButtonGroup_ceu5l")
-text = "Historical Levels"
-icon = ExtResource("9_k71nm")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dif4lkydm2krv"]
 
 [ext_resource type="Script" uid="uid://dkvup7hhy6t62" path="res://Game/historical_levels_menu/historical_levels_menu.gd" id="1_dodhf"]
-[ext_resource type="Texture2D" uid="uid://gi5bjfhwbilu" path="res://assets/FokkerDrI/FokkerDrI-blueprint.jpg" id="2_epm8d"]
+[ext_resource type="Texture2D" uid="uid://dtnqb5hkui6nt" path="res://assets/img_dogfight.jpg" id="2_dodhf"]
 [ext_resource type="Texture2D" uid="uid://cadfy2yb32yvs" path="res://assets/FokkerDrI/FokkerDrI-blueprint-white.jpg" id="3_4g7aj"]
 [ext_resource type="Texture2D" uid="uid://g1mac86yxgxl" path="res://assets/GothaGV/GothaGV-1(hd).png" id="4_ijc74"]
 [ext_resource type="Texture2D" uid="uid://46vxupxihnlt" path="res://assets/Airco D.H.2/dh2.png" id="5_55no5"]
@@ -27,7 +27,7 @@ script = ExtResource("1_dodhf")
 layout_mode = 0
 offset_right = 1494.0
 offset_bottom = 848.0
-texture = ExtResource("2_epm8d")
+texture = ExtResource("2_dodhf")
 expand_mode = 1
 
 [node name="background" type="TextureRect" parent="."]
