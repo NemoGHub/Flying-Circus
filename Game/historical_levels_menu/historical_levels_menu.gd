@@ -22,11 +22,6 @@ func _on_button_pressed(button_name: String):
 			get_tree().change_scene_to_file("res://Game/levels/fokkerDrI-mission/fokkerDrI-mis.tscn")
 		"BackButton":
 			get_tree().change_scene_to_file("res://Game/main_menu/main_menu.tscn")
-	# Кнопка выхода
-	#var exit_button = Button.new()
-	#exit_button.text = "Выход"
-	#exit_button.pressed.connect(_on_exit_pressed)
-	#$VBoxContainer.add_child(exit_button)
 
 func _load_level(index: int):
 	get_tree().change_scene_to_file(levels[index])

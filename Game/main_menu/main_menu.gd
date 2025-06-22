@@ -22,12 +22,7 @@ func _on_button_pressed(button_name: String):
 		"historical_levels_btn":
 			get_tree().change_scene_to_file("res://Game/historical_levels_menu/Historical_levels_menu.tscn")
 		"ExitButton":
-			get_tree().quit()  # Для мобильных платформ используйте SceneTree.quit()
-	# Кнопка выхода
-	#var exit_button = Button.new()
-	#exit_button.text = "Выход"
-	#exit_button.pressed.connect(_on_exit_pressed)
-	#$VBoxContainer.add_child(exit_button)
+			get_tree().quit()  # Для мобильных платформ использовать SceneTree.quit()
 
 func _load_level(index: int):
 	get_tree().change_scene_to_file(levels[index])

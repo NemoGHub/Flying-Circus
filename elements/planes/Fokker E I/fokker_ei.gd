@@ -1,4 +1,7 @@
 extends Fighter
+# ################ #
+# Fokker Eindecker #
+# ################ # 
 
 func  _ready() -> void:
 	HEALTH = 5.0

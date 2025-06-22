@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+# Класс обновляющий параметры в интерфейсе
+
 @onready var speed_label = $SpeedLabel
 @onready var ammo_label = $AmmoLabel
 @onready var health_label = $HealthLabel

@@ -1,5 +1,9 @@
 extends Fighter
 
+# ###################### #
+# Morane-Saulnier Type L #
+# ###################### # 
+
 func  _ready() -> void:
 	HEALTH = 4
 	HEALTH_remains = HEALTH

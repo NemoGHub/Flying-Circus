@@ -1,7 +1,11 @@
-#extends "res://elements/planes/default_plane/default_plane.gd"
-
 class_name Bombers
 extends Planes
+
+# ########################################################## #
+# Gotha G.V, а также базовый класс для всех бомбардировщиков #
+# ########################################################## # 
+
+# Бомбардировщики не уклоняются от игрока, а отстреливаются  #
 
 var player : Planes
 var plane : Planes
@@ -23,11 +27,12 @@ func  _ready() -> void:
 	bullet_scene = preload("res://elements/bullet_turret_default/turret_bullet_default.tscn")
 	
 	turret_direction = randf_range(-1.0,1.0)
+	
+	# Случайно выбираем скин
 	if randi() % 2:
 		turretToRight = false
 		texture = preload("res://assets/GothaGV/GothaGV-camo.png")
-
-
+	# Получаем игрока
 	if not get_tree().get_nodes_in_group("Player").is_empty():
 		player = get_tree().get_nodes_in_group("Player")[0]
 
@@ -35,14 +40,14 @@ func _process(delta: float) -> void:
 	if isDefending:
 		turret_fire(delta)
 	if player:
-		#var player_positionX = player.global_position.x
-		#print(player_positionX)
+		# Если игрок рядом, стеляем
 		if abs(player.global_position.x - plane.global_position.x) < 200:
 			if not isDefending:
 				isDefending = true
 		elif isDefending:
 			isDefending = false
 			
+# Наведение турели
 func aim_the_turret(): # Unfortunately, gunner is blind.
 	if turretToRight and turret_direction < 1.0:
 		turret_direction += (turnRate / 1000)
@@ -51,6 +56,8 @@ func aim_the_turret(): # Unfortunately, gunner is blind.
 		turret_direction -= (turnRate / 1000)
 	else:
 		turretToRight = true
+		
+# Jujym bp j,jhjybntkmyjujj djjhe;tybz
 func  turret_fire(delta):
 	#set_rand_directon()		
 	if AMMO > 0:			
@@ -67,12 +74,3 @@ func mg_fire():
 	shell.global_position = global_position + Vector2(0, 130)
 	shell.direction = turret_direction 
 	add_child(shell)
-
-#func shot_down():
-	#set_physics_process(false)
-	#add_child(boom_effect.instantiate())
-	#print('Shot down!')
-	#plane.queue_free()
-	##$CollisionShape2D.queue_free()
-	##$Sprite2D.queue_free()
-	#

@@ -1,5 +1,9 @@
 extends Bombers
 
+# ########### #
+# Breguet XIV #
+# ########### # 
+
 func  _ready() -> void:
 	HEALTH = 15
 	HEALTH_remains = HEALTH
